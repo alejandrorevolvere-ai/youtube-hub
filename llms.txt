@@ -1,0 +1,17 @@
+# Señal Abierta
+
+> Hub editorial que reúne dos canales de YouTube: negocio/dinero e inteligencia artificial en vídeos breves.
+
+Señal Abierta es el sitio de presentación de dos canales operados por el mismo creador. Actualiza sus estadísticas y últimos vídeos desde data.json (RSS de YouTube).
+
+## Canales
+
+- El Club del Negocio (https://www.youtube.com/@historiasdenegocios-o5m): historias de empresas, dinero y decisiones. ~79 vídeos, ~8.2k reproducciones.
+- IA en 60 segundos (https://www.youtube.com/@IAen60-f1i): una idea de IA explicada en un minuto. ~50 vídeos, ~2k reproducciones.
+
+## Sitio
+
+- Inicio: https://alejandrorevolvere-ai.github.io/youtube-hub/
+- Últimos vídeos: https://alejandrorevolvere-ai.github.io/youtube-hub/#senal
+- Datos en JSON: https://alejandrorevolvere-ai.github.io/youtube-hub/data.json
+- Idioma: español

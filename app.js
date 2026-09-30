@@ -57,6 +57,7 @@
 
   const VID_RE = /^[A-Za-z0-9_-]{6,20}$/;
   const isInt = (v) => Number.isInteger(v) && v >= 0;
+  const UTM = 'utm_source=youtube_hub&utm_medium=link&utm_campaign=senal_abierta';
 
   const el = (tag, cls, text) => {
     const node = document.createElement(tag);
@@ -74,7 +75,7 @@
 
   const buildCard = (v, chKey, chName, tagClass) => {
     if (!v || typeof v.id !== 'string' || !VID_RE.test(v.id)) return null;
-    const href = 'https://www.youtube.com/watch?v=' + v.id;
+    const href = 'https://www.youtube.com/watch?v=' + v.id + '&' + UTM + '&utm_content=vcard';
     const title = typeof v.title === 'string' ? v.title.slice(0, 120) : '';
 
     const card = el('a', 'vcard reveal is-in');
