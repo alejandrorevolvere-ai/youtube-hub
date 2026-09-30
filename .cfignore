@@ -1,0 +1,8 @@
+# Excluido del despliegue en Cloudflare Pages
+.git
+.gitignore
+.cfignore
+scripts/
+promo/
+content/
+README.md

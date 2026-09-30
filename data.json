@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-30T01:42:20+00:00",
+  "generated_at": "2026-09-30T09:35:54+00:00",
   "channels": {
     "club": {
       "id": "UCKBRqrOcPPfwc_jxWesEItA",
@@ -21,42 +21,48 @@
           "title": "Walmart: la historia COMPLETA de Sam Walton (de dependiente a $500B)",
           "published": "2026-09-27",
           "url": "https://www.youtube.com/watch?v=p1GdG4IPYUQ",
-          "thumb": "https://i.ytimg.com/vi/p1GdG4IPYUQ/hqdefault.jpg"
+          "thumb": "https://i.ytimg.com/vi/p1GdG4IPYUQ/hqdefault.jpg",
+          "slug": "walmart-la-historia-completa-de-sam-walton-de-dependiente-a-500b"
         },
         {
           "id": "QUenfzcLkGU",
           "title": "Netflix: El Error que lo Hizo Millonario",
           "published": "2026-09-27",
           "url": "https://www.youtube.com/watch?v=QUenfzcLkGU",
-          "thumb": "https://i.ytimg.com/vi/QUenfzcLkGU/hqdefault.jpg"
+          "thumb": "https://i.ytimg.com/vi/QUenfzcLkGU/hqdefault.jpg",
+          "slug": "netflix-el-error-que-lo-hizo-millonario"
         },
         {
           "id": "y12CPJujge8",
           "title": "Google: el dato de dinero que nadie te contó 🤯",
           "published": "2026-09-26",
           "url": "https://www.youtube.com/watch?v=y12CPJujge8",
-          "thumb": "https://i.ytimg.com/vi/y12CPJujge8/hqdefault.jpg"
+          "thumb": "https://i.ytimg.com/vi/y12CPJujge8/hqdefault.jpg",
+          "slug": "google-el-dato-de-dinero-que-nadie-te-conto"
         },
         {
           "id": "D0XSCj2v0eI",
           "title": "Nike: de vender en el maletero a valer €50B 🚀",
           "published": "2026-09-26",
           "url": "https://www.youtube.com/watch?v=D0XSCj2v0eI",
-          "thumb": "https://i.ytimg.com/vi/D0XSCj2v0eI/hqdefault.jpg"
+          "thumb": "https://i.ytimg.com/vi/D0XSCj2v0eI/hqdefault.jpg",
+          "slug": "nike-de-vender-en-el-maletero-a-valer-50b"
         },
         {
           "id": "HFWoAIYCvk8",
           "title": "Netflix: el error de €50M que casi lo destruye 🎬",
           "published": "2026-09-26",
           "url": "https://www.youtube.com/watch?v=HFWoAIYCvk8",
-          "thumb": "https://i.ytimg.com/vi/HFWoAIYCvk8/hqdefault.jpg"
+          "thumb": "https://i.ytimg.com/vi/HFWoAIYCvk8/hqdefault.jpg",
+          "slug": "netflix-el-error-de-50m-que-casi-lo-destruye"
         },
         {
           "id": "E_7ZE_-ojL8",
           "title": "Apple: el truco para ahorrar €500 al mes 💰",
           "published": "2026-09-26",
           "url": "https://www.youtube.com/watch?v=E_7ZE_-ojL8",
-          "thumb": "https://i.ytimg.com/vi/E_7ZE_-ojL8/hqdefault.jpg"
+          "thumb": "https://i.ytimg.com/vi/E_7ZE_-ojL8/hqdefault.jpg",
+          "slug": "apple-el-truco-para-ahorrar-500-al-mes"
         }
       ]
     },
@@ -80,42 +86,48 @@
           "title": "Hablo con ChatGPT gratis por voz 🗣️",
           "published": "2026-09-26",
           "url": "https://www.youtube.com/watch?v=YyNfUQdhsZw",
-          "thumb": "https://i.ytimg.com/vi/YyNfUQdhsZw/hqdefault.jpg"
+          "thumb": "https://i.ytimg.com/vi/YyNfUQdhsZw/hqdefault.jpg",
+          "slug": "hablo-con-chatgpt-gratis-por-voz"
         },
         {
           "id": "2Ah3VdZFkpM",
           "title": "Resume 1 HORA de video en 30 seg con IA ⚡",
           "published": "2026-09-26",
           "url": "https://www.youtube.com/watch?v=2Ah3VdZFkpM",
-          "thumb": "https://i.ytimg.com/vi/2Ah3VdZFkpM/hqdefault.jpg"
+          "thumb": "https://i.ytimg.com/vi/2Ah3VdZFkpM/hqdefault.jpg",
+          "slug": "resume-1-hora-de-video-en-30-seg-con-ia"
         },
         {
           "id": "CNPQXFgIN8c",
           "title": "Haz que tu voz cante con IA (gratuito) 🎵",
           "published": "2026-09-26",
           "url": "https://www.youtube.com/watch?v=CNPQXFgIN8c",
-          "thumb": "https://i.ytimg.com/vi/CNPQXFgIN8c/hqdefault.jpg"
+          "thumb": "https://i.ytimg.com/vi/CNPQXFgIN8c/hqdefault.jpg",
+          "slug": "haz-que-tu-voz-cante-con-ia-gratuito"
         },
         {
           "id": "-WPT4RJfrnk",
           "title": "Crea videos épicos con una foto 🎬",
           "published": "2026-09-25",
           "url": "https://www.youtube.com/watch?v=-WPT4RJfrnk",
-          "thumb": "https://i.ytimg.com/vi/-WPT4RJfrnk/hqdefault.jpg"
+          "thumb": "https://i.ytimg.com/vi/-WPT4RJfrnk/hqdefault.jpg",
+          "slug": "crea-videos-epicos-con-una-foto"
         },
         {
           "id": "3U4IgMPekGk",
           "title": "Ahorra 3 horas de trabajo hoy ⚡",
           "published": "2026-09-25",
           "url": "https://www.youtube.com/watch?v=3U4IgMPekGk",
-          "thumb": "https://i.ytimg.com/vi/3U4IgMPekGk/hqdefault.jpg"
+          "thumb": "https://i.ytimg.com/vi/3U4IgMPekGk/hqdefault.jpg",
+          "slug": "ahorra-3-horas-de-trabajo-hoy"
         },
         {
           "id": "-sNBOsjeFEM",
           "title": "HeyGen crea tu clon IA idéntico en 60 segundos 🗣️",
           "published": "2026-09-25",
           "url": "https://www.youtube.com/watch?v=-sNBOsjeFEM",
-          "thumb": "https://i.ytimg.com/vi/-sNBOsjeFEM/hqdefault.jpg"
+          "thumb": "https://i.ytimg.com/vi/-sNBOsjeFEM/hqdefault.jpg",
+          "slug": "heygen-crea-tu-clon-ia-identico-en-60-segundos"
         }
       ]
     }

@@ -1,17 +1,38 @@
 # Señal Abierta
 
-> Hub editorial que reúne dos canales de YouTube: negocio/dinero e inteligencia artificial en vídeos breves.
+> Hub editorial que reúne dos canales de YouTube: negocio/dinero e
+> inteligencia artificial en vídeos breves.
 
-Señal Abierta es el sitio de presentación de dos canales operados por el mismo creador. Actualiza sus estadísticas y últimos vídeos desde data.json (RSS de YouTube).
+Señal Abierta es el sitio de presentación de dos canales operados por
+el mismo creador. Cada vídeo tiene ficha propia (resumen + enlace).
 
 ## Canales
 
-- El Club del Negocio (https://www.youtube.com/@historiasdenegocios-o5m): historias de empresas, dinero y decisiones. ~79 vídeos, ~8.2k reproducciones.
-- IA en 60 segundos (https://www.youtube.com/@IAen60-f1i): una idea de IA explicada en un minuto. ~50 vídeos, ~2k reproducciones.
+- El Club del Negocio: https://www.youtube.com/channel/UCKBRqrOcPPfwc_jxWesEItA — 79 vídeos. 8.247 reproducciones.
+- IA en 60": https://www.youtube.com/channel/UC670GGGsL5Bl9bd5DCdTKAg — 50 vídeos. 1.984 reproducciones.
 
 ## Sitio
 
-- Inicio: https://alejandrorevolvere-ai.github.io/youtube-hub/
-- Últimos vídeos: https://alejandrorevolvere-ai.github.io/youtube-hub/#senal
-- Datos en JSON: https://alejandrorevolvere-ai.github.io/youtube-hub/data.json
+- Inicio: https://senalabierta.pages.dev/
+- Fichas de vídeo: https://senalabierta.pages.dev/v/<slug>/
+- Datos en JSON: https://senalabierta.pages.dev/data.json
+- Sitemap: https://senalabierta.pages.dev/sitemap.xml
 - Idioma: español
+
+## Vídeos recientes
+
+- [Walmart: la historia COMPLETA de Sam Walton (de dependiente a $500B)](https://senalabierta.pages.dev/v/walmart-la-historia-completa-de-sam-walton-de-dependiente-a-500b/) — El Club del Negocio, 2026-09-27
+- [Netflix: El Error que lo Hizo Millonario](https://senalabierta.pages.dev/v/netflix-el-error-que-lo-hizo-millonario/) — El Club del Negocio, 2026-09-27
+- [Google: el dato de dinero que nadie te contó 🤯](https://senalabierta.pages.dev/v/google-el-dato-de-dinero-que-nadie-te-conto/) — El Club del Negocio, 2026-09-26
+- [Nike: de vender en el maletero a valer €50B 🚀](https://senalabierta.pages.dev/v/nike-de-vender-en-el-maletero-a-valer-50b/) — El Club del Negocio, 2026-09-26
+- [Netflix: el error de €50M que casi lo destruye 🎬](https://senalabierta.pages.dev/v/netflix-el-error-de-50m-que-casi-lo-destruye/) — El Club del Negocio, 2026-09-26
+- [Apple: el truco para ahorrar €500 al mes 💰](https://senalabierta.pages.dev/v/apple-el-truco-para-ahorrar-500-al-mes/) — El Club del Negocio, 2026-09-26
+- [Airbnb: empezó con un colchón y hoy vale €30B 💥](https://senalabierta.pages.dev/v/airbnb-empezo-con-un-colchon-y-hoy-vale-30b/) — El Club del Negocio, 2026-09-26
+- [Hablo con ChatGPT gratis por voz 🗣️](https://senalabierta.pages.dev/v/hablo-con-chatgpt-gratis-por-voz/) — IA en 60", 2026-09-26
+- [Resume 1 HORA de video en 30 seg con IA ⚡](https://senalabierta.pages.dev/v/resume-1-hora-de-video-en-30-seg-con-ia/) — IA en 60", 2026-09-26
+- [Haz que tu voz cante con IA (gratuito) 🎵](https://senalabierta.pages.dev/v/haz-que-tu-voz-cante-con-ia-gratuito/) — IA en 60", 2026-09-26
+- [Spotify: El Error que lo Hizo Millonario](https://senalabierta.pages.dev/v/spotify-el-error-que-lo-hizo-millonario/) — El Club del Negocio, 2026-09-25
+- [Crea videos épicos con una foto 🎬](https://senalabierta.pages.dev/v/crea-videos-epicos-con-una-foto/) — IA en 60", 2026-09-25
+- [Ahorra 3 horas de trabajo hoy ⚡](https://senalabierta.pages.dev/v/ahorra-3-horas-de-trabajo-hoy/) — IA en 60", 2026-09-25
+- [HeyGen crea tu clon IA idéntico en 60 segundos 🗣️](https://senalabierta.pages.dev/v/heygen-crea-tu-clon-ia-identico-en-60-segundos/) — IA en 60", 2026-09-25
+- [Foto PROFESIONAL con IA (sin fotografo) 🎵](https://senalabierta.pages.dev/v/foto-profesional-con-ia-sin-fotografo/) — IA en 60", 2026-09-25

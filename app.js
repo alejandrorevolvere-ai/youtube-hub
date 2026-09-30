@@ -56,6 +56,7 @@
   }
 
   const VID_RE = /^[A-Za-z0-9_-]{6,20}$/;
+  const SLUG_RE = /^[a-z0-9][a-z0-9-]{2,74}$/;
   const isInt = (v) => Number.isInteger(v) && v >= 0;
   const UTM = 'utm_source=youtube_hub&utm_medium=link&utm_campaign=senal_abierta';
 
@@ -75,13 +76,18 @@
 
   const buildCard = (v, chKey, chName, tagClass) => {
     if (!v || typeof v.id !== 'string' || !VID_RE.test(v.id)) return null;
-    const href = 'https://www.youtube.com/watch?v=' + v.id + '&' + UTM + '&utm_content=vcard';
+    const hasSlug = typeof v.slug === 'string' && SLUG_RE.test(v.slug);
+    const href = hasSlug
+      ? 'v/' + v.slug + '/'
+      : 'https://www.youtube.com/watch?v=' + v.id + '&' + UTM + '&utm_content=vcard';
     const title = typeof v.title === 'string' ? v.title.slice(0, 120) : '';
 
     const card = el('a', 'vcard reveal is-in');
     card.href = href;
-    card.target = '_blank';
-    card.rel = 'noopener noreferrer';
+    if (!hasSlug) {
+      card.target = '_blank';
+      card.rel = 'noopener noreferrer';
+    }
     card.dataset.vid = v.id;
     card.dataset.ch = chKey;
     if (typeof v.published === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(v.published)) {
@@ -104,7 +110,7 @@
     if (typeof v.published === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(v.published)) {
       meta.appendChild(el('span', 'data-date', monthShort(v.published)));
     }
-    meta.appendChild(el('span', null, 'Ver en YouTube ↗'));
+    meta.appendChild(el('span', null, hasSlug ? 'Ver ficha →' : 'Ver en YouTube ↗'));
     body.appendChild(meta);
     card.appendChild(body);
     return card;

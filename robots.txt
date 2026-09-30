@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://alejandrorevolvere-ai.github.io/youtube-hub/sitemap.xml
+Sitemap: https://senalabierta.pages.dev/sitemap.xml

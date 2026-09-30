@@ -4,12 +4,13 @@ Todo usa el hub como puerta de entrada. Los enlaces llevan UTM por plataforma
 (`utm_source`) para que en YouTube Analytics el tráfico externo sea
 identificable y las URLs queden diferenciadas.
 
-**URL base del hub:** `https://alejandrorevolvere-ai.github.io/youtube-hub/`
+**URL base del hub:** `https://senalabierta.pages.dev/`
 
 > Nota: YouTube Analytics mide el tráfico externo por el dominio de referencia
 > (ya activo: `strict-origin-when-cross-origin`). Los UTM identifican cada
-> enlace de forma única; si en el futuro se añade analítica al hub, los UTM
-> ya estarán recolectados.
+> enlace de forma única; el hub tiene Cloudflare Web Analytics (sin cookies),
+> donde los UTM de entrada quedan recolectados para ver el tráfico inverso
+> (Google → hub → YouTube).
 
 ---
 
@@ -17,15 +18,15 @@ identificable y las URLs queden diferenciadas.
 
 | Dónde va | URL con UTM |
 |---|---|
-| Bio X | `https://alejandrorevolvere-ai.github.io/youtube-hub/?utm_source=x&utm_medium=bio&utm_campaign=senal_abierta` |
-| Bio TikTok | `https://alejandrorevolvere-ai.github.io/youtube-hub/?utm_source=tiktok&utm_medium=bio&utm_campaign=senal_abierta` |
-| Bio Instagram | `https://alejandrorevolvere-ai.github.io/youtube-hub/?utm_source=instagram&utm_medium=bio&utm_campaign=senal_abierta` |
-| Bio Threads | `https://alejandrorevolvere-ai.github.io/youtube-hub/?utm_source=threads&utm_medium=bio&utm_campaign=senal_abierta` |
-| Descripción (About) del canal | `https://alejandrorevolvere-ai.github.io/youtube-hub/?utm_source=youtube&utm_medium=channel_about&utm_campaign=senal_abierta` |
-| Comentario fijado en vídeos | `https://alejandrorevolvere-ai.github.io/youtube-hub/?utm_source=youtube&utm_medium=pinned_comment&utm_campaign=senal_abierta` |
-| Newsletter / mailing | `https://alejandrorevolvere-ai.github.io/youtube-hub/?utm_source=newsletter&utm_medium=email&utm_campaign=senal_abierta` |
-| Firma de foro / Discord | `https://alejandrorevolvere-ai.github.io/youtube-hub/?utm_source=foro&utm_medium=firma&utm_campaign=senal_abierta` |
-| Firma de email | `https://alejandrorevolvere-ai.github.io/youtube-hub/?utm_source=email&utm_medium=firma&utm_campaign=senal_abierta` |
+| Bio X | `https://senalabierta.pages.dev/?utm_source=x&utm_medium=bio&utm_campaign=senal_abierta` |
+| Bio TikTok | `https://senalabierta.pages.dev/?utm_source=tiktok&utm_medium=bio&utm_campaign=senal_abierta` |
+| Bio Instagram | `https://senalabierta.pages.dev/?utm_source=instagram&utm_medium=bio&utm_campaign=senal_abierta` |
+| Bio Threads | `https://senalabierta.pages.dev/?utm_source=threads&utm_medium=bio&utm_campaign=senal_abierta` |
+| Descripción (About) del canal | `https://senalabierta.pages.dev/?utm_source=youtube&utm_medium=channel_about&utm_campaign=senal_abierta` |
+| Comentario fijado en vídeos | `https://senalabierta.pages.dev/?utm_source=youtube&utm_medium=pinned_comment&utm_campaign=senal_abierta` |
+| Newsletter / mailing | `https://senalabierta.pages.dev/?utm_source=newsletter&utm_medium=email&utm_campaign=senal_abierta` |
+| Firma de foro / Discord | `https://senalabierta.pages.dev/?utm_source=foro&utm_medium=firma&utm_campaign=senal_abierta` |
+| Firma de email | `https://senalabierta.pages.dev/?utm_source=email&utm_medium=firma&utm_campaign=senal_abierta` |
 
 ---
 
@@ -34,7 +35,7 @@ identificable y las URLs queden diferenciadas.
 ```
 Historias de empresas, el dinero detrás de cada decisión y lecciones que convierten una idea en movimiento.
 
-🆕 Todo el archivo ordenado en un solo sitio: https://alejandrorevolvere-ai.github.io/youtube-hub/?utm_source=youtube&utm_medium=channel_about&utm_campaign=senal_abierta
+🆕 Todo el archivo ordenado en un solo sitio: https://senalabierta.pages.dev/?utm_source=youtube&utm_medium=channel_about&utm_campaign=senal_abierta
 
 Nuevo vídeo cada semana. Suscríbete y activa la campana 🔔
 ```
@@ -44,7 +45,7 @@ Nuevo vídeo cada semana. Suscríbete y activa la campana 🔔
 ```
 Una idea poderosa de IA explicada en el tiempo que tardas en decidir: herramientas gratis, flujos y atajos reales.
 
-🆕 Nuevo cada semana + todos los vídeos aquí: https://alejandrorevolvere-ai.github.io/youtube-hub/?utm_source=youtube&utm_medium=channel_about&utm_campaign=senal_abierta
+🆕 Nuevo cada semana + todos los vídeos aquí: https://senalabierta.pages.dev/?utm_source=youtube&utm_medium=channel_about&utm_campaign=senal_abierta
 
 Suscríbete 🔔
 ```
@@ -55,7 +56,7 @@ Suscríbete 🔔
 
 ```
 👉 ¿Esto te sirvió? En el hub tienes el resto del archivo, ordenado por canal:
-https://alejandrorevolvere-ai.github.io/youtube-hub/?utm_source=youtube&utm_medium=pinned_comment&utm_campaign=senal_abierta
+https://senalabierta.pages.dev/?utm_source=youtube&utm_medium=pinned_comment&utm_campaign=senal_abierta
 
 ¿De qué tema quieres el próximo vídeo? Déjalo en un comentario 👇
 ```
@@ -68,7 +69,7 @@ https://alejandrorevolvere-ai.github.io/youtube-hub/?utm_source=youtube&utm_medi
 ```
 Negocios, dinero e IA en vídeos de 60". Dos canales, una señal. 👉 youtube-hub
 ```
-*(pegar con la URL de la tabla: la bio de X solo admite 160 caracteres, usa la URL corta `https://alejandrorevolvere-ai.github.io/youtube-hub/` directamente)*
+*(pegar con la URL de la tabla: la bio de X solo admite 160 caracteres, usa la URL corta `https://senalabierta.pages.dev/` directamente)*
 
 ### TikTok — límite 80
 ```
@@ -93,7 +94,7 @@ Negocio + IA en 60". Dos canales →
 ```
 Lancé "Señal Abierta", un hub con mis dos canales: historias de negocio e
 inteligencia artificial en vídeos de un minuto. Todo el archivo en un solo
-lugar: https://alejandrorevolvere-ai.github.io/youtube-hub/?utm_source=foro&utm_medium=firma&utm_campaign=senal_abierta
+lugar: https://senalabierta.pages.dev/?utm_source=foro&utm_medium=firma&utm_campaign=senal_abierta
 ```
 
 **Medium (para Discord/newsletter):**
@@ -105,13 +106,17 @@ Dos canales, una señal:
 • IA en 60": una idea de IA explicada en el tiempo que tardas en decidir
 
 Vídeos breves, sin humo. Aquí está todo el archivo ordenado:
-https://alejandrorevolvere-ai.github.io/youtube-hub/?utm_source=newsletter&utm_medium=email&utm_campaign=senal_abierta
+https://senalabierta.pages.dev/?utm_source=newsletter&utm_medium=email&utm_campaign=senal_abierta
 ```
 
 ---
 
 ## 7. Checklist de promoción
 
+- [ ] **URL nueva** (`https://senalabierta.pages.dev/`): reemplazar la antigua
+      `alejandrorevolvere-ai.github.io/youtube-hub/` en bios, links de banner y
+      comentarios fijados ya publicados (la URL vieja redirige, pero conviene
+      actualizarla)
 - [ ] Enlace del hub en los Links del banner de **ambos canales** (Customizar canal → Vínculos)
 - [ ] Descripción actualizada (secciones 2 y 3) en ambos canales
 - [ ] Comentario fijado (sección 4) en los últimos 3-5 vídeos
@@ -119,4 +124,4 @@ https://alejandrorevolvere-ai.github.io/youtube-hub/?utm_source=newsletter&utm_m
 - [ ] Firma en Discord/foros habituales (sección 6)
 - [ ] Compartir la sección `#senal` del hub al salir un vídeo nuevo
 - [ ] Revisar en YouTube Analytics → Alcance → Fuentes de tráfico → Externo
-      (debería aparecer `alejandrorevolvere-ai.github.io` como fuente)
+      (debería aparecer `senalabierta.pages.dev` como fuente)
