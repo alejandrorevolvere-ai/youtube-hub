@@ -15,6 +15,7 @@ el mismo creador. Cada vídeo tiene ficha propia (resumen + enlace).
 
 - Inicio: https://senalabierta.pages.dev/
 - Archivo completo (filtra por canal): https://senalabierta.pages.dev/archivo/
+- Libros recomendados (con enlaces al vídeo): https://senalabierta.pages.dev/libros/
 - Fichas de vídeo: https://senalabierta.pages.dev/v/<slug>/
 - Datos en JSON: https://senalabierta.pages.dev/data.json
 - Feed Atom: https://senalabierta.pages.dev/feed.xml

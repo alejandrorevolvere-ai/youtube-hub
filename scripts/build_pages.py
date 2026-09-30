@@ -85,6 +85,27 @@ AFFILIATES = {
 }
 AFF_NOTE = ("Enlaces de afiliado: si te suscribes o compras por aquí, "
             "el canal recibe una comisión sin coste extra para ti.")
+AMZ_DISCLOSURE = ("Como Afiliado de Amazon, percibo dinero con las compras "
+                  "que cumplen los requisitos.")
+AMZ_BASE = ("https://www.amazon.es/dp/{asin}?tag=senalabierta-21"
+            "&utm_source=senalabierta&utm_medium=affiliate&utm_campaign=libros")
+
+
+def load_libros():
+    """data/libros.json -> (lista de libros, {videoId: libro})."""
+    path = ROOT / "data" / "libros.json"
+    if not path.exists():
+        return [], {}
+    books = json.loads(path.read_text(encoding="utf-8")).get("books", [])
+    by_video = {}
+    for b in books:
+        b["url"] = AMZ_BASE.format(asin=b["asin"])
+        for vid in b.get("videos", []):
+            by_video[vid] = b
+    return books, by_video
+
+
+LIBROS, VIDEO_BOOK = load_libros()
 
 
 def clean_description(desc: str) -> str:
@@ -95,9 +116,11 @@ def clean_description(desc: str) -> str:
     """
     if not desc:
         return ""
-    cut = desc.find("\n---\n\nTodo el archivo (94 videos):")
+    cut = desc.find("Todo el archivo (94 videos):")
     if cut != -1:
-        desc = desc[:cut]
+        sep = desc.rfind("\n---\n", 0, cut)
+        if sep != -1:
+            desc = desc[:sep]
     out = []
     for line in desc.splitlines():
         s = line.strip()
@@ -162,17 +185,26 @@ def ld_json(obj) -> str:
     return json.dumps(obj, ensure_ascii=False, indent=2).replace("</", "<\\/")
 
 
-def aff_html(ch_key: str) -> str:
-    """Bloque de enlaces de afiliado contextual del canal (o vacio)."""
+def aff_html(ch_key: str, vid: str | None = None) -> str:
+    """Bloque de enlaces de afiliado contextual del canal (o vacio).
+
+    Si el video tiene libro mapeado en data/libros.json, la entrada de
+    Amazon apunta al libro concreto en vez de la busqueda generica.
+    """
     items = AFFILIATES.get(ch_key) or []
     if not items:
         return ""
+    book = VIDEO_BOOK.get(vid) if vid else None
     links = []
     for a in items:
+        url, blurb = a["url"], a["blurb"]
+        if book and a["slot"] == "senalabierta-21":
+            url = book["url"]
+            blurb = f"Libro de este vídeo: {book['title']}"
         links.append(f"""\
-        <a class="aff" href="{esc(a['url'])}" target="_blank" rel="sponsored noopener noreferrer" data-aff="{esc(a['slot'])}">
+        <a class="aff" href="{esc(url)}" target="_blank" rel="sponsored noopener noreferrer" data-aff="{esc(a['slot'])}">
           <strong>{esc(a['name'])}</strong>
-          <span>{esc(a['blurb'])}</span>
+          <span>{esc(blurb)}</span>
           <em aria-hidden="true">↗</em>
         </a>""")
     return f"""\
@@ -330,7 +362,7 @@ def video_page(v: dict, ch_key: str, ch_meta: dict, related: list, csp: str) -> 
 
       {f'<section class="lp-body">{paras}</section>' if paras else ''}
       {tags_line}
-      {aff_html(ch_key)}
+      {aff_html(ch_key, vid)}
 
       {related_html}
     </article>
@@ -354,6 +386,11 @@ def build_sitemap(videos: list) -> None:
     <lastmod>{today}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+  </url>""", f"""  <url>
+    <loc>{BASE}/libros/</loc>
+    <lastmod>{today}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>"""]
     for v in videos:
         rows.append(f"""  <url>
@@ -480,6 +517,71 @@ def archive_page(videos: list, channels: dict, csp: str) -> str:
 """
 
 
+def libros_page(books: list, videos: list, csp: str) -> str:
+    by_id = {v["id"]: v for v in videos}
+    cards = []
+    for b in books:
+        vlinks = []
+        for vid in b.get("videos", []):
+            v = by_id.get(vid)
+            if v:
+                vlinks.append(f'<a href="../v/{esc(v["slug"])}/">{esc(v.get("title", ""))}</a>')
+        vids_line = ('<p class="book-videos">' + " · ".join(vlinks) + "</p>"
+                     if vlinks else '<p class="book-videos">Recomendación general del canal</p>')
+        cards.append(f"""\
+        <article class="book">
+          <p class="book-emp">{esc(b['empresa'])}</p>
+          <h2 class="book-title">{esc(b['title'])}</h2>
+          {vids_line}
+          <a class="button button-accent" href="{esc(b['url'])}" target="_blank" rel="sponsored noopener noreferrer" data-aff="senalabierta-21">Ver en Amazon <span aria-hidden="true">↗</span></a>
+        </article>""")
+    return f"""\
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Libros recomendados por Señal Abierta: los títulos detrás de las historias de negocio y los enlaces a cada vídeo." />
+  <meta name="theme-color" content="#11110f" />
+  <meta property="og:title" content="Libros · Señal Abierta" />
+  <meta property="og:description" content="Los libros detrás de cada historia de negocio, enlazados a su vídeo." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="{BASE}/libros/" />
+  <link rel="canonical" href="{BASE}/libros/" />
+  <link rel="alternate" type="application/atom+xml" title="Señal Abierta" href="{BASE}/feed.xml" />
+  <title>Libros · Señal Abierta</title>
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta http-equiv="Content-Security-Policy" content="{csp}" />
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+  <header class="nav shell">
+    <a class="brand" href="../" aria-label="Señal Abierta, inicio"><span class="brand-mark">↗</span><span>SEÑAL<br /><b>ABIERTA</b></span></a>
+    <nav aria-label="Navegación principal"><a href="../#canales">Canales</a><a href="../archivo/">Archivo</a><a class="nav-cta" href="../#ver">Ver ahora <span>↗</span></a></nav>
+  </header>
+
+  <main class="arch-main">
+    <section class="arch shell">
+      <div class="section-head">
+        <div><p class="eyebrow">/ Libros recomendados</p><h1 class="arch-h1">Para ir más<br /><em>profundo.</em></h1></div>
+        <div class="arch-tools">
+          <p class="lib-intro">{len(books)} títulos detrás de las historias de este canal. Cada libro enlaza con su vídeo y a la edición en Amazon España.</p>
+          <p class="aff-note">{esc(AMZ_DISCLOSURE)}</p>
+        </div>
+      </div>
+      <div class="lib-grid">
+{chr(10).join(cards)}
+      </div>
+    </section>
+  </main>
+  <footer class="footer shell"><span>© 2026 SEÑAL ABIERTA</span><span><a href="../archivo/">Archivo</a> <b>✳</b> <a href="../feed.xml">Feed</a></span><span><a href="../">Hub ↑</a></span></footer>
+</body>
+</html>
+"""
+
+
 def build_llms(videos: list, channels: dict) -> None:
     lines = [
         "# Señal Abierta",
@@ -502,6 +604,7 @@ def build_llms(videos: list, channels: dict) -> None:
         "",
         f"- Inicio: {BASE}/",
         f"- Archivo completo (filtra por canal): {BASE}/archivo/",
+        f"- Libros recomendados (con enlaces al vídeo): {BASE}/libros/",
         f"- Fichas de vídeo: {BASE}/v/<slug>/",
         f"- Datos en JSON: {BASE}/data.json",
         f"- Feed Atom: {BASE}/feed.xml",
@@ -572,14 +675,19 @@ def main() -> int:
     ARCHDIR.mkdir(parents=True, exist_ok=True)
     (ARCHDIR / "index.html").write_text(
         archive_page(videos, channels, csp), encoding="utf-8")
+    libdir = ROOT / "libros"
+    libdir.mkdir(parents=True, exist_ok=True)
+    (libdir / "index.html").write_text(
+        libros_page(LIBROS, videos, csp), encoding="utf-8")
     build_sitemap(videos)
     build_llms(videos, channels)
     build_feed(videos)
     build_vindex(videos)
 
     print(f"OK: {written} fichas en v/, {removed} retiradas, "
-          f"archivo con {len(videos)}, feed de {min(15, len(videos))} entradas, "
-          f"v-index.json, sitemap con {len(videos) + 2} URLs, llms.txt")
+          f"archivo con {len(videos)}, libros con {len(LIBROS)}, "
+          f"feed de {min(15, len(videos))} entradas, "
+          f"v-index.json, sitemap con {len(videos) + 3} URLs, llms.txt")
     return 0
 
 

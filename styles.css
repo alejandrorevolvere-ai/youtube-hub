@@ -320,6 +320,16 @@ section{scroll-margin-top:104px}
 .arch-filters button.is-on{background:var(--acid);color:var(--ink);border-color:var(--acid)}
 .arch-count{font:400 11px var(--mono);letter-spacing:.06em;color:var(--muted);margin:0}
 .arch-count b{color:var(--coral);font-weight:400}
+.lib-intro{font:400 13px/1.7 var(--body);color:var(--muted);max-width:420px;margin:0}
+.lib-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:22px}
+.book{display:flex;flex-direction:column;background:var(--panel);border:1px solid var(--line);padding:26px 24px 24px;color:var(--paper);gap:10px;transition:transform .45s var(--ease),border-color .45s}
+.book:hover{transform:translateY(-4px);border-color:var(--acid)}
+.book-emp{font:500 10px var(--mono);letter-spacing:.18em;text-transform:uppercase;color:var(--acid);margin:0}
+.book-title{font:700 21px/1.15 var(--display);letter-spacing:-.03em;margin:0;color:var(--paper)}
+.book-videos{font:400 12px/1.6 var(--body);color:var(--muted);margin:0;flex:1}
+.book-videos a{color:var(--muted);text-decoration:underline;text-underline-offset:3px}
+.book-videos a:hover{color:var(--acid)}
+.book .button{align-self:flex-start;margin-top:6px}
 .arch{padding-bottom:110px}
 .arch-grid{grid-template-columns:repeat(4,1fr)}
 .arch-empty{font:400 13px var(--mono);color:var(--muted);padding:50px 0}

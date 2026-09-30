@@ -32,7 +32,7 @@ FILES = [
     "llms.txt",
     "_headers",
 ]
-DIRS = ["fonts", "v", "archivo", "img"]
+DIRS = ["fonts", "v", "archivo", "libros", "img"]
 
 
 def main() -> int:

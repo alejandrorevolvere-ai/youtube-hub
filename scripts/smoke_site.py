@@ -25,8 +25,9 @@ chk(len(t.getroot().findall("a:entry", ns)) == 15, "feed.xml con 15 entradas")
 
 sm = (root / "sitemap.xml").read_text(encoding="utf-8")
 nloc = sm.count("<loc>")
-chk(nloc == 96, f"sitemap con {nloc} URLs")
+chk(nloc == 97, f"sitemap con {nloc} URLs")
 chk("/archivo/" in sm, "sitemap incluye /archivo/")
+chk("/libros/" in sm, "sitemap incluye /libros/")
 
 arch = (root / "archivo" / "index.html").read_text(encoding="utf-8")
 nvc = arch.count('class="vcard"')
@@ -41,6 +42,16 @@ l = lp.read_text(encoding="utf-8")
 chk("lp-aff" in l, f"bloque afiliados en {lp.parent.name}")
 chk('rel="sponsored noopener noreferrer"' in l, "rel=sponsored en afiliados")
 chk("lp-related" in l, "relacionados presentes")
+
+# libro especifico por video (mapeo de data/libros.json)
+net = (root / "v" / "netflix-el-error-que-lo-hizo-millonario" /
+       "index.html").read_text(encoding="utf-8")
+chk("1984881884" in net and "tag=senalabierta-21" in net,
+    "landing Netflix enlaza su libro (ASIN + tag)")
+chk("Libro de este v" in net, "blurb del libro en la landing")
+nin = (root / "v" / "nintendo-de-cartas-de-poker-a-50-mil-millones" /
+       "index.html").read_text(encoding="utf-8")
+chk("amazon.es/s?k=" in nin, "landing sin libro mantiene la busqueda generica")
 
 # tag de Amazon en todas las landings de negocio; slots IA siguen pendientes
 files = [(f, f.read_text(encoding="utf-8"))
@@ -70,9 +81,15 @@ chk("04 / L" in h, "hitos numerado 04")
 chk("ko-fi.com/alejandrorevolvere" in h, "footer con Ko-fi")
 chk("buttondown.com/revolvere" in h, "footer con newsletter")
 chk("archivo/" in h, "index enlaza archivo")
+chk("libros/" in h, "index enlaza libros")
 chk("feed.xml" in h, "head enlaza feed")
+lib = (root / "libros" / "index.html").read_text(encoding="utf-8")
+chk(lib.count('class="book"') == 11, "libros con 11 fichas")
+chk("tag=senalabierta-21" in lib and "1984881884" in lib,
+    "libros con links ASIN + tag")
+chk("Afiliado de Amazon" in lib, "divulgacion de Amazon en libros")
 for p in ["feed.xml", "archivo.js", "404.html", "v-index.json",
-          "img/hitos/turing.webp", "img/hitos/CREDITS.md"]:
+          "libros/index.html", "img/hitos/turing.webp", "img/hitos/CREDITS.md"]:
     chk((root / p).exists(), f"existe {p}")
 
 # XSS: ninguna landing con scripts inline ni texto sin escapar en atributos

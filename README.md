@@ -39,8 +39,13 @@ Sitio estático del hub editorial **Señal Abierta** — presentación de los ca
 - Amazon Afiliados: tag `senalabierta-21` ya enchufado en `AFFILIATES`
   (`scripts/build_pages.py`); pendientes de alta: Quipu, ElevenLabs y
   NordVPN (slots `TODO-AFILIADO`).
+- `/libros/`: 11 libros con ASIN (`data/libros.json`); cada video con libro
+  mapeado lo enlaza en su landing y en su descripcion de YouTube
+  (`sync_video_descriptions.py --apply --add-books`, solo canal club).
 - Footer del hub: Ko-fi (`ko-fi.com/alejandrorevolvere`) y Buttondown
   (`buttondown.com/revolvere`) configurados en `index.html`.
+- Descripciones de YouTube: bloque CTA (hub + newsletter + Ko-fi) sincronizado
+  en los 94 videos con `scripts/sync_video_descriptions.py`.
 
 ## Actualizar contenido y redesplegar
 

@@ -36,6 +36,20 @@ NEWSLETTER = "https://buttondown.com/revolvere?utm_source=senalabierta&utm_mediu
 KOFI = "https://ko-fi.com/alejandrorevolvere?utm_source=senalabierta&utm_medium=kofi&utm_campaign=youtube"
 AMZ_DISCLOSURE = ("Como Afiliado de Amazon, percibo dinero con las compras "
                   "que cumplen los requisitos.")
+AMZ_BASE = ("https://www.amazon.es/dp/{asin}?tag=senalabierta-21"
+            "&utm_source=senalabierta&utm_medium=affiliate&utm_campaign=libros")
+
+
+def load_books() -> dict:
+    """data/libros.json -> {videoId: {"url", "title"}} (videos del club)."""
+    if not LIBROS.exists():
+        return {}
+    out = {}
+    for b in json.loads(LIBROS.read_text(encoding="utf-8")).get("books", []):
+        url = AMZ_BASE.format(asin=b["asin"])
+        for vid in b.get("videos", []):
+            out[vid] = {"url": url, "title": b.get("title", "")}
+    return out
 
 
 def build_cta(ch: str, slug: str, book_url: str | None) -> str:
@@ -64,6 +78,9 @@ def main() -> int:
     ap.add_argument("--limit", type=int, default=None,
                     help="maximo de updates en este lote (defecto 30 con --apply, 0=todo)")
     ap.add_argument("--channel", choices=["club", "ia60"], default=None)
+    ap.add_argument("--add-books", action="store_true",
+                    help="inserta la linea de libro en las descripciones "
+                         "que ya tienen el bloque CTA")
     args = ap.parse_args()
 
     sys.stdout.reconfigure(encoding="utf-8")
@@ -74,9 +91,7 @@ def main() -> int:
         idx = [v for v in idx if v["ch"] == args.channel]
     idx.sort(key=lambda v: v.get("pub", ""), reverse=True)
 
-    books = {}
-    if LIBROS.exists():
-        books = json.loads(LIBROS.read_text(encoding="utf-8"))
+    books = load_books()
 
     limit = args.limit if args.limit is not None else (30 if args.apply else 0)
 
@@ -108,14 +123,25 @@ def main() -> int:
             n_missing += 1
             continue
         desc = snip.get("description", "")
+        book = books.get(vid) if ch == "club" else None
         if any(m in desc for m in MARKERS):
-            n_skip += 1
-            continue
-        book = books.get(vid)
-        book_url = None
-        if book and ch == "club":
-            book_url = book if isinstance(book, str) else book.get("url")
-        new_desc = desc.rstrip() + "\n" + build_cta(ch, slug, book_url)
+            # ya tiene CTA: con --add-books solo se inserta la linea de libro
+            if args.add_books and book and "Libro de esta historia:" not in desc:
+                anchor = "---\n\nTodo el archivo (94 videos):"
+                if anchor not in desc:
+                    n_skip += 1
+                    continue
+                new_desc = desc.replace(
+                    anchor,
+                    f"---\n\nLibro de esta historia: {book['url']}\n"
+                    f"{AMZ_DISCLOSURE}\n\nTodo el archivo (94 videos):",
+                    1)
+            else:
+                n_skip += 1
+                continue
+        else:
+            new_desc = desc.rstrip() + "\n" + build_cta(
+                ch, slug, book["url"] if book else None)
         if len(new_desc) > MAX_LEN:
             print(f"TOO-LONG {vid} ({len(new_desc)} chars), se omite")
             n_toolong += 1
@@ -154,7 +180,8 @@ def main() -> int:
     print(f"cuota estimada: list={list_units} update={update_units} "
           f"(total {list_units + update_units} / 10000 diarias)")
     if not args.apply and n_update:
-        print("Siguiente: --apply --limit 30")
+        print(f"Siguiente: --apply --limit 30"
+              f"{' --add-books' if args.add_books else ''}")
     return 0
 
 

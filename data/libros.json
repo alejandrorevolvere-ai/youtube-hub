@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "books": [
+    {"asin": "0385511205", "title": "Sam Walton: Made in America", "empresa": "Walmart", "videos": ["p1GdG4IPYUQ", "5U4sMDpqqR4", "QHBMChEI3Do"]},
+    {"asin": "1984881884", "title": "No Rules Rules (Reed Hastings)", "empresa": "Netflix", "videos": ["QUenfzcLkGU", "HFWoAIYCvk8", "qZ82DhVSrEA"]},
+    {"asin": "0525433546", "title": "Nunca te pares / Shoe Dog (Phil Knight)", "empresa": "Nike", "videos": ["D0XSCj2v0eI", "GYeOweUTKsc"]},
+    {"asin": "8499897312", "title": "Steve Jobs (Walter Isaacson)", "empresa": "Apple", "videos": ["E_7ZE_-ojL8", "G5MdTAvCxP0"]},
+    {"asin": "8476159218", "title": "La máquina que cambió el mundo", "empresa": "Toyota", "videos": ["YFfmf5oV8n0", "izRoYGUOoWE"]},
+    {"asin": "8499701019", "title": "Zara: Visión y estrategia de Amancio Ortega", "empresa": "Zara", "videos": ["XFUcCZnHEJ8", "vjCFLsXo5bo", "Kexs9jCtfQY"]},
+    {"asin": "8403102070", "title": "El desafío Starbucks", "empresa": "Starbucks", "videos": ["A4xV_a3Jhec"]},
+    {"asin": "1250127505", "title": "Grinding It Out (Ray Kroc)", "empresa": "McDonald's", "videos": ["C4qrUhKzQdg"]},
+    {"asin": "1647820715", "title": "Invent and Wander (Jeff Bezos)", "empresa": "Amazon", "videos": ["T6K434lX1lQ"]},
+    {"asin": "1328745546", "title": "The Airbnb Story", "empresa": "Airbnb", "videos": ["T3pY04fwAUI", "H0gpy04oYhc"]},
+    {"asin": "842340949X", "title": "El método Lean Startup (Eric Ries)", "empresa": "Recomendación general", "videos": []}
+  ]
+}
