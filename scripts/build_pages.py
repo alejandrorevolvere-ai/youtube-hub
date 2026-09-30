@@ -88,9 +88,16 @@ AFF_NOTE = ("Enlaces de afiliado: si te suscribes o compras por aquí, "
 
 
 def clean_description(desc: str) -> str:
-    """Quita capitulos tipo '00:09 ...', hashtags sueltos y lineas solo-URL."""
+    """Quita capitulos tipo '00:09 ...', hashtags sueltos y lineas solo-URL.
+
+    Tambien recorta el bloque CTA (hub/newsletter/kofi) que el sync con
+    YouTube anade al final de la descripcion, para no duplicarlo en landings.
+    """
     if not desc:
         return ""
+    cut = desc.find("\n---\n\nTodo el archivo (94 videos):")
+    if cut != -1:
+        desc = desc[:cut]
     out = []
     for line in desc.splitlines():
         s = line.strip()

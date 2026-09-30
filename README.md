@@ -30,6 +30,7 @@ Sitio estático del hub editorial **Señal Abierta** — presentación de los ca
 | `scripts/build_pages.py` | Genera fichas, archivo, feed, v-index, sitemap y llms.txt |
 | `scripts/fetch_hitos.py` | Descarga imágenes PD/CC0 de Commons y las pasa a duotone |
 | `scripts/csp_hashes.py` | Regenera la CSP (meta de index.html + `_headers`) |
+| `scripts/sync_video_descriptions.py` | Anade/verifica el bloque CTA en las descripciones de YouTube (dry-run por defecto) |
 | `scripts/package_site.py` | Empaqueta `dist/` con solo lo público (previo al deploy) |
 | `promo/promo.md` | Textos de promoción listos para pegar |
 
