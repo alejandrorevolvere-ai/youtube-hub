@@ -14,8 +14,10 @@ el mismo creador. Cada vídeo tiene ficha propia (resumen + enlace).
 ## Sitio
 
 - Inicio: https://senalabierta.pages.dev/
+- Archivo completo (filtra por canal): https://senalabierta.pages.dev/archivo/
 - Fichas de vídeo: https://senalabierta.pages.dev/v/<slug>/
 - Datos en JSON: https://senalabierta.pages.dev/data.json
+- Feed Atom: https://senalabierta.pages.dev/feed.xml
 - Sitemap: https://senalabierta.pages.dev/sitemap.xml
 - Idioma: español
 

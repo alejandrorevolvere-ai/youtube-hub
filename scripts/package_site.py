@@ -17,10 +17,14 @@ DIST = ROOT / "dist"
 
 FILES = [
     "index.html",
+    "404.html",
     "styles.css",
     "app.js",
+    "archivo.js",
     "landing.js",
     "data.json",
+    "v-index.json",
+    "feed.xml",
     "favicon.svg",
     "og.png",
     "sitemap.xml",
@@ -28,7 +32,7 @@ FILES = [
     "llms.txt",
     "_headers",
 ]
-DIRS = ["fonts", "v"]
+DIRS = ["fonts", "v", "archivo", "img"]
 
 
 def main() -> int:

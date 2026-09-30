@@ -19,6 +19,7 @@
   <meta name="twitter:description" content="Negocios, dinero e IA en formato breve. Dos canales, una señal." />
   <meta name="twitter:image" content="https://senalabierta.pages.dev/og.png" />
   <link rel="canonical" href="https://senalabierta.pages.dev/" />
+  <link rel="alternate" type="application/atom+xml" title="Señal Abierta" href="https://senalabierta.pages.dev/feed.xml" />
   <title>Señal Abierta · Ideas que mueven</title>
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
@@ -80,7 +81,7 @@
   <div class="grain" aria-hidden="true"></div>
   <header class="nav shell">
     <a class="brand" href="#inicio" aria-label="Señal Abierta, inicio"><span class="brand-mark">↗</span><span>SEÑAL<br /><b>ABIERTA</b></span></a>
-    <nav aria-label="Navegación principal"><a href="#canales">Canales</a><a href="#senal">Últimas señales</a><a href="#manifiesto">Manifiesto</a><a class="nav-cta" href="#ver">Ver ahora <span>↗</span></a></nav>
+    <nav aria-label="Navegación principal"><a href="#canales">Canales</a><a href="#senal">Últimas señales</a><a href="archivo/">Archivo</a><a href="#hitos">Hitos</a><div class="nav-search" role="search"><input id="q" type="search" placeholder="Buscar…" autocomplete="off" aria-label="Buscar vídeos" /><div class="qres" id="qres" hidden></div></div><button class="nav-rand" type="button" id="rand" aria-label="Ir a un vídeo aleatorio" title="Vídeo aleatorio">↻</button><a class="nav-cta" href="#ver">Ver ahora <span>↗</span></a></nav>
   </header>
 
   <main id="inicio">
@@ -187,9 +188,51 @@
 
     <section id="manifiesto" class="manifesto shell"><div class="manifesto-number">03</div><div class="manifesto-copy reveal"><p class="eyebrow">/ El manifiesto</p><blockquote>“No necesitas más ruido.<br /><em>Necesitas una señal.</em>”</blockquote><p>Este es un espacio para las ideas que sobreviven al scroll: una historia de negocio, una herramienta de IA, una decisión que puede cambiar el rumbo. Sin humo. Con contexto.</p><a class="text-link" href="#ver">Encuentra tu próximo vídeo ↗</a></div><div class="manifesto-aside reveal delay-2"><span>SEÑAL<br />ABIERTA</span><div class="aside-bar"></div><small>Actualizado<br />cada semana</small></div></section>
 
-    <section id="ver" class="watch shell"><div class="watch-panel reveal"><div><p class="eyebrow">04 / La próxima señal</p><h2>Un minuto puede<br /><em>cambiar el ángulo.</em></h2></div><div class="watch-side"><p>Elige tu canal, dale al play y quédate con la idea que te sirva hoy.</p><div class="watch-links"><a href="https://www.youtube.com/@historiasdenegocios-o5m?utm_source=youtube_hub&utm_medium=link&utm_campaign=senal_abierta&utm_content=cta" target="_blank" rel="noopener noreferrer">Ver negocios <span>↗</span></a><a href="https://www.youtube.com/@IAen60-f1i?utm_source=youtube_hub&utm_medium=link&utm_campaign=senal_abierta&utm_content=cta" target="_blank" rel="noopener noreferrer">Ver IA <span>↗</span></a></div></div></div></section>
+    <section id="hitos" class="hitos shell">
+      <div class="section-head reveal">
+        <div><p class="eyebrow">04 / Línea de tiempo</p><h2>Las ideas que<br /><em>nos traen aquí.</em></h2></div>
+        <p class="section-note">Un poco de historia de negocios y de IA en una sola línea: los momentos que cambiaron cómo se gana dinero y cómo se piensa.</p>
+      </div>
+      <div class="hit-track" role="list">
+        <figure class="hit reveal" role="listitem">
+          <img src="img/hitos/ford-linea-montaje.webp" alt="Obreros trabajando en la línea de montaje de Ford, 1913" width="760" height="488" loading="lazy" />
+          <figcaption><span class="hit-ch hit-club">Negocio</span><span class="hit-year">1913</span><strong>Ford y la línea de montaje</strong><p>La producción en serie abarata todo: nace la economía de escala.</p></figcaption>
+        </figure>
+        <figure class="hit reveal" role="listitem">
+          <img src="img/hitos/crac-1929.webp" alt="Multitud frente a la Bolsa de Nueva York en octubre de 1929" width="760" height="488" loading="lazy" />
+          <figcaption><span class="hit-ch hit-club">Negocio</span><span class="hit-year">1929</span><strong>El crac del 29</strong><p>El dinero aprende a temblar: nacen las reglas que aún hoy protegen (o no) los mercados.</p></figcaption>
+        </figure>
+        <figure class="hit reveal" role="listitem">
+          <img src="img/hitos/eniac.webp" alt="Glen Beck y Betty Snyder programan la computadora ENIAC" width="760" height="488" loading="lazy" />
+          <figcaption><span class="hit-ch hit-ia">IA</span><span class="hit-year">1946</span><strong>ENIAC, la primera computadora</strong><p>30 toneladas de cálculo: todo lo digital empieza aquí.</p></figcaption>
+        </figure>
+        <figure class="hit reveal" role="listitem">
+          <img src="img/hitos/turing.webp" alt="Retrato fotográfico de Alan Turing, 1951" width="760" height="488" loading="lazy" />
+          <figcaption><span class="hit-ch hit-ia">IA</span><span class="hit-year">1950</span><strong>La prueba de Turing</strong><p>"¿Puede una máquina pensar?" La pregunta que funda la IA.</p></figcaption>
+        </figure>
+        <figure class="hit reveal" role="listitem">
+          <img src="img/hitos/patron-oro.webp" alt="Certificado de oro de 100.000 dólares expuesto en el Smithsonian" width="760" height="488" loading="lazy" />
+          <figcaption><span class="hit-ch hit-club">Negocio</span><span class="hit-year">1971</span><strong>El fin del patrón oro</strong><p>El dólar se separa del oro: el dinero se vuelve pura confianza.</p></figcaption>
+        </figure>
+        <figure class="hit reveal" role="listitem">
+          <img src="img/hitos/bezos-amazon.webp" alt="Jeff Bezos, fundador de Amazon, en una visita militar" width="760" height="488" loading="lazy" />
+          <figcaption><span class="hit-ch hit-club">Negocio</span><span class="hit-year">1994</span><strong>Amazon vende su primer libro</strong><p>De un garaje a la tienda de todo el mundo: el e-commerce escala.</p></figcaption>
+        </figure>
+        <figure class="hit reveal" role="listitem">
+          <img src="img/hitos/deep-learning.webp" alt="Estación de trabajo con tarjeta gráfica (GPU) y disipadores" width="760" height="488" loading="lazy" />
+          <figcaption><span class="hit-ch hit-ia">IA</span><span class="hit-year">2012</span><strong>El deep learning despega</strong><p>Las GPUs convierten datos en reconocimiento de imagen y voz.</p></figcaption>
+        </figure>
+        <figure class="hit reveal" role="listitem">
+          <img src="img/hitos/chatgpt.webp" alt="Portátil mostrando código de programación en pantalla" width="760" height="488" loading="lazy" />
+          <figcaption><span class="hit-ch hit-ia">IA</span><span class="hit-year">2022</span><strong>ChatGPT lleva la IA a todos</strong><p>La IA pasa del laboratorio al bolsillo (y a este canal).</p></figcaption>
+        </figure>
+      </div>
+      <p class="hit-credit">Imágenes de época: dominio público y CC0 vía Wikimedia Commons <b>✳</b> reprocesadas en duotone Señal Abierta <b>✳</b> detalle en <span>img/hitos/CREDITS.md</span>.</p>
+    </section>
+
+    <section id="ver" class="watch shell"><div class="watch-panel reveal"><div><p class="eyebrow">05 / La próxima señal</p><h2>Un minuto puede<br /><em>cambiar el ángulo.</em></h2></div><div class="watch-side"><p>Elige tu canal, dale al play y quédate con la idea que te sirva hoy.</p><div class="watch-links"><a href="https://www.youtube.com/@historiasdenegocios-o5m?utm_source=youtube_hub&utm_medium=link&utm_campaign=senal_abierta&utm_content=cta" target="_blank" rel="noopener noreferrer">Ver negocios <span>↗</span></a><a href="https://www.youtube.com/@IAen60-f1i?utm_source=youtube_hub&utm_medium=link&utm_campaign=senal_abierta&utm_content=cta" target="_blank" rel="noopener noreferrer">Ver IA <span>↗</span></a></div></div></div></section>
   </main>
-  <footer class="footer shell"><span>© 2026 SEÑAL ABIERTA</span><span>Datos de canal en vivo: YouTube <b>✳</b></span><span><a href="#inicio">Volver arriba ↑</a></span></footer>
+  <footer class="footer shell"><span>© 2026 SEÑAL ABIERTA</span><span class="footer-links"><a href="https://ko-fi.com/" target="_blank" rel="noopener noreferrer" data-aff="kofi">Invítame a un café ☕</a><b>✳</b><a href="https://buttondown.email/" target="_blank" rel="noopener noreferrer" data-aff="newsletter">Newsletter ↗</a><b>✳</b><a href="archivo/">Archivo</a><b>✳</b><a href="feed.xml">Feed</a></span><span><a href="#inicio">Volver arriba ↑</a></span></footer>
   <script src="app.js"></script>
 </body>
 </html>

@@ -1,23 +1,26 @@
 #!/usr/bin/env python3
 """
-Genera las landing pages SEO por video (/v/<slug>/), sitemap.xml y llms.txt.
+Genera las landing pages SEO por video (/v/<slug>/), el archivo, feed.xml,
+v-index.json, sitemap.xml y llms.txt.
 
   python scripts/fetch_channel_data.py   # actualiza content/videos.json
-  python scripts/build_pages.py          # genera paginas + sitemap + llms.txt
+  python scripts/build_pages.py          # genera paginas + feed + sitemap
 
 Entradas:
   - content/videos.json  archivo acumulativo (descripcion, duracion, vistas)
   - index.html           solo para la CSP (scripts/csp_hashes.py)
 
 Salidas:
-  - v/<slug>/index.html  una ficha por video: H1 con keyword, descripcion
-                         limpia, facade de reproduccion (youtube-nocookie),
-                         JSON-LD VideoObject, enlaces internos y CTA con UTM
-  - sitemap.xml          home + todas las fichas
-  - llms.txt             resumen + fichas recientes
+  - v/<slug>/index.html  ficha por video: H1, descripcion limpia, facade
+                         (youtube-nocookie), JSON-LD, afiliados y CTA
+  - archivo/index.html   archivo completo filtrable por canal
+  - feed.xml             Atom con los ultimos 15 videos
+  - v-index.json         indice ligero (id, slug, titulo, canal) para
+                         buscador y "video aleatorio" del hub
+  - sitemap.xml / llms.txt
 
-No hay scripts inline en las fichas: la CSP se aplica tal cual (mismo policy
-string que index.html). Ninguna URL se repite: el slug es estable.
+No hay scripts inline en ninguna pagina generada: la CSP se aplica tal cual
+(mismo policy string que index.html).
 """
 import html
 import json
@@ -35,12 +38,52 @@ ROOT = Path(__file__).resolve().parent.parent
 ARCHIVE = ROOT / "content" / "videos.json"
 SITEMAP = ROOT / "sitemap.xml"
 LLMS = ROOT / "llms.txt"
+FEED = ROOT / "feed.xml"
+VIDX = ROOT / "v-index.json"
+ARCHDIR = ROOT / "archivo"
 VDIR = ROOT / "v"
 BASE = "https://senalabierta.pages.dev"
 
 TAG_CLASS = {"club": "vtag-club", "ia60": "vtag-ia"}
 MESES = ["ENE", "FEB", "MAR", "ABR", "MAY", "JUN",
          "JUL", "AGO", "SEP", "OCT", "NOV", "DIC"]
+
+# Enlaces de afiliado por canal. El href es el sitio oficial con UTM de
+# afiliado; los slots marcados con "TODO-AFILIADO" se sustituyen por el enlace
+# rastreado (tracking id / tag / ref) cuando el creador se dé de alta.
+AFF_UTM = "?utm_source=senalabierta&utm_medium=affiliate&utm_campaign"
+AFFILIATES = {
+    "club": [
+        {
+            "slot": "TODO-AFILIADO:amazon-es",
+            "name": "Amazon",
+            "blurb": "Libros de las historias de negocio de este canal",
+            "url": "https://www.amazon.es/s?k=libros+de+negocio&" + AFF_UTM[1:] + "=amazon",
+        },
+        {
+            "slot": "TODO-AFILIADO:quipu",
+            "name": "Quipu",
+            "blurb": "Facturación y gestión para autónomos (30% recurrente)",
+            "url": "https://getquipu.com/" + AFF_UTM + "=quipu",
+        },
+    ],
+    "ia60": [
+        {
+            "slot": "TODO-AFILIADO:elevenlabs",
+            "name": "ElevenLabs",
+            "blurb": "Voz IA: narra y clona voces en segundos (22%)",
+            "url": "https://elevenlabs.io/" + AFF_UTM + "=elevenlabs",
+        },
+        {
+            "slot": "TODO-AFILIADO:nordvpn",
+            "name": "NordVPN",
+            "blurb": "Protege tu conexión cuando trabajas con IA",
+            "url": "https://nordvpn.com/" + AFF_UTM + "=nordvpn",
+        },
+    ],
+}
+AFF_NOTE = ("Enlaces de afiliado: si te suscribes o compras por aquí, "
+            "el canal recibe una comisión sin coste extra para ti.")
 
 
 def clean_description(desc: str) -> str:
@@ -109,6 +152,29 @@ def esc(s) -> str:
 def ld_json(obj) -> str:
     # evita cierre accidental del bloque si el texto contiene '</'
     return json.dumps(obj, ensure_ascii=False, indent=2).replace("</", "<\\/")
+
+
+def aff_html(ch_key: str) -> str:
+    """Bloque de enlaces de afiliado contextual del canal (o vacio)."""
+    items = AFFILIATES.get(ch_key) or []
+    if not items:
+        return ""
+    links = []
+    for a in items:
+        links.append(f"""\
+        <a class="aff" href="{esc(a['url'])}" target="_blank" rel="sponsored noopener noreferrer" data-aff="{esc(a['slot'])}">
+          <strong>{esc(a['name'])}</strong>
+          <span>{esc(a['blurb'])}</span>
+          <em aria-hidden="true">↗</em>
+        </a>""")
+    return f"""\
+      <section class="lp-aff" aria-label="Herramientas y lecturas">
+        <p class="eyebrow">/ Herramientas y lecturas</p>
+        <div class="aff-list">
+{chr(10).join(links)}
+        </div>
+        <p class="aff-note">{esc(AFF_NOTE)}</p>
+      </section>"""
 
 
 def video_page(v: dict, ch_key: str, ch_meta: dict, related: list, csp: str) -> str:
@@ -214,6 +280,7 @@ def video_page(v: dict, ch_key: str, ch_meta: dict, related: list, csp: str) -> 
   <meta name="twitter:description" content="{esc(desc)}" />
   <meta name="twitter:image" content="{thumb}" />
   <link rel="canonical" href="{url}" />
+  <link rel="alternate" type="application/atom+xml" title="Señal Abierta" href="{BASE}/feed.xml" />
   <title>{esc(title)} · Señal Abierta</title>
   <link rel="icon" href="../../favicon.svg" type="image/svg+xml" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
@@ -255,11 +322,12 @@ def video_page(v: dict, ch_key: str, ch_meta: dict, related: list, csp: str) -> 
 
       {f'<section class="lp-body">{paras}</section>' if paras else ''}
       {tags_line}
+      {aff_html(ch_key)}
 
       {related_html}
     </article>
   </main>
-  <footer class="footer shell"><span>© 2026 SEÑAL ABIERTA</span><span>Ficha de vídeo <b>✳</b> datos de YouTube</span><span><a href="../../">Volver al hub ↑</a></span></footer>
+  <footer class="footer shell"><span>© 2026 SEÑAL ABIERTA</span><span><a href="../../archivo/">Archivo completo</a> <b>✳</b> <a href="{BASE}/feed.xml">Feed</a></span><span><a href="../../">Volver al hub ↑</a></span></footer>
   <script src="../../landing.js"></script>
 </body>
 </html>
@@ -273,6 +341,11 @@ def build_sitemap(videos: list) -> None:
     <lastmod>{today}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+  </url>""", f"""  <url>
+    <loc>{BASE}/archivo/</loc>
+    <lastmod>{today}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>"""]
     for v in videos:
         rows.append(f"""  <url>
@@ -287,6 +360,116 @@ def build_sitemap(videos: list) -> None:
         + "\n".join(rows) + "\n</urlset>\n",
         encoding="utf-8",
     )
+
+
+def build_feed(videos: list) -> None:
+    """Atom de los ultimos 15 videos (sin scripts, solo XML)."""
+    updated = videos[0].get("published") or datetime.now(timezone.utc).date().isoformat()
+    entries = []
+    for v in videos[:15]:
+        ch = CHANNELS.get(v.get("channel"), {})
+        url = f"{BASE}/v/{v['slug']}/"
+        pub = v.get("published") or updated
+        title = esc(v.get("title", ""))
+        desc = esc(meta_description(clean_description(v.get("description", "")),
+                                    v.get("title", "")))
+        entries.append(f"""  <entry>
+    <title>{title}</title>
+    <link href="{url}" />
+    <id>{url}</id>
+    <updated>{pub}T00:00:00Z</updated>
+    <author><name>{esc(ch.get('name', 'Señal Abierta'))}</name></author>
+    <summary>{desc}</summary>
+  </entry>""")
+    FEED.write_text(
+        '<?xml version="1.0" encoding="utf-8"?>\n'
+        '<feed xmlns="http://www.w3.org/2005/Atom">\n'
+        f'  <title>Señal Abierta</title>\n'
+        f'  <subtitle>Negocios, dinero e IA en vídeos breves</subtitle>\n'
+        f'  <link href="{BASE}/" />\n'
+        f'  <link rel="self" href="{BASE}/feed.xml" />\n'
+        f'  <id>{BASE}/</id>\n'
+        f'  <updated>{updated}T00:00:00Z</updated>\n'
+        + "\n".join(entries) + "\n</feed>\n",
+        encoding="utf-8",
+    )
+
+
+def build_vindex(videos: list) -> None:
+    """Indice ligero para el buscador y el boton de video aleatorio."""
+    rows = [{"id": v["id"], "slug": v["slug"], "ch": v.get("channel", ""),
+             "title": v.get("title", ""), "pub": v.get("published", "")}
+            for v in videos]
+    VIDX.write_text(json.dumps(rows, ensure_ascii=False, separators=(",", ":")),
+                    encoding="utf-8")
+
+
+def archive_page(videos: list, channels: dict, csp: str) -> str:
+    cards = []
+    for v in videos:
+        ch_key = v.get("channel")
+        ch = channels.get(ch_key, {})
+        ch_name = ch.get("name", "")
+        title = esc(v.get("title", ""))
+        cards.append(f"""\
+        <a class="vcard" href="../v/{esc(v['slug'])}/" data-ch="{esc(ch_key or '')}">
+          <span class="vthumb"><img src="https://i.ytimg.com/vi/{esc(v['id'])}/hqdefault.jpg" alt="{title}" loading="lazy" /><span class="vtag {TAG_CLASS.get(ch_key, 'vtag-club')}">{esc(ch_name)}</span><span class="vplay">▶</span></span>
+          <span class="vcard-body"><span class="vtitle">{title}</span><span class="vmeta"><span>{fmt_date(v.get('published', ''))}</span><span>Ver ficha →</span></span></span>
+        </a>""")
+    return f"""\
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Archivo completo de Señal Abierta: todos los vídeos de El Club del Negocio e IA en 60 segundos, filtrables por canal." />
+  <meta name="theme-color" content="#11110f" />
+  <meta property="og:title" content="Archivo · Señal Abierta" />
+  <meta property="og:description" content="Todas las señales emitidas: negocios, dinero e IA en un solo listado." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="{BASE}/archivo/" />
+  <link rel="canonical" href="{BASE}/archivo/" />
+  <link rel="alternate" type="application/atom+xml" title="Señal Abierta" href="{BASE}/feed.xml" />
+  <title>Archivo · Señal Abierta</title>
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta http-equiv="Content-Security-Policy" content="{csp}" />
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+  <header class="nav shell">
+    <a class="brand" href="../" aria-label="Señal Abierta, inicio"><span class="brand-mark">↗</span><span>SEÑAL<br /><b>ABIERTA</b></span></a>
+    <nav aria-label="Navegación principal"><a href="../#canales">Canales</a><a href="../#senal">Últimas señales</a><a class="nav-cta" href="../#ver">Ver ahora <span>↗</span></a></nav>
+  </header>
+
+  <main class="arch-main">
+    <section class="arch shell">
+      <div class="section-head">
+        <div><p class="eyebrow">00 / Archivo completo</p><h1 class="arch-h1">Todas las<br /><em>señales.</em></h1></div>
+        <div class="arch-tools">
+          <div class="nav-search arch-search">
+            <input id="arch-q" type="search" placeholder="Buscar por título…" autocomplete="off" aria-label="Buscar en el archivo" />
+          </div>
+          <div class="arch-filters" role="group" aria-label="Filtrar por canal">
+            <button type="button" class="is-on" data-filter="all">Todo</button>
+            <button type="button" data-filter="club">El Club del Negocio</button>
+            <button type="button" data-filter="ia60">IA en 60"</button>
+          </div>
+          <p class="arch-count"><b data-arch-count>{len(videos)}</b> señales en el archivo</p>
+        </div>
+      </div>
+      <div class="vgrid arch-grid" id="arch-grid">
+{chr(10).join(cards)}
+      </div>
+      <p class="arch-empty" hidden>No hay resultados con ese filtro.</p>
+    </section>
+  </main>
+  <footer class="footer shell"><span>© 2026 SEÑAL ABIERTA</span><span><a href="../feed.xml">Feed Atom</a> <b>✳</b> <a href="../">Hub ↑</a></span><span><a href="../#inicio">Volver arriba ↑</a></span></footer>
+  <script src="../archivo.js"></script>
+</body>
+</html>
+"""
 
 
 def build_llms(videos: list, channels: dict) -> None:
@@ -310,8 +493,10 @@ def build_llms(videos: list, channels: dict) -> None:
         "## Sitio",
         "",
         f"- Inicio: {BASE}/",
+        f"- Archivo completo (filtra por canal): {BASE}/archivo/",
         f"- Fichas de vídeo: {BASE}/v/<slug>/",
         f"- Datos en JSON: {BASE}/data.json",
+        f"- Feed Atom: {BASE}/feed.xml",
         f"- Sitemap: {BASE}/sitemap.xml",
         "- Idioma: español",
         "",
@@ -375,11 +560,18 @@ def main() -> int:
 
     data = json.loads((ROOT / "data.json").read_text(encoding="utf-8")) \
         if (ROOT / "data.json").exists() else {"channels": {}}
+    channels = data.get("channels", {})
+    ARCHDIR.mkdir(parents=True, exist_ok=True)
+    (ARCHDIR / "index.html").write_text(
+        archive_page(videos, channels, csp), encoding="utf-8")
     build_sitemap(videos)
-    build_llms(videos, data.get("channels", {}))
+    build_llms(videos, channels)
+    build_feed(videos)
+    build_vindex(videos)
 
     print(f"OK: {written} fichas en v/, {removed} retiradas, "
-          f"sitemap con {len(videos) + 1} URLs, llms.txt actualizado")
+          f"archivo con {len(videos)}, feed de {min(15, len(videos))} entradas, "
+          f"v-index.json, sitemap con {len(videos) + 2} URLs, llms.txt")
     return 0
 
 

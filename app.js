@@ -198,4 +198,87 @@
       .then(applyData)
       .catch(() => { /* sin data.json se mantiene el HTML estático */ });
   }
+
+  // --- Buscador del header y botón de vídeo aleatorio (v-index.json) ---
+  const qInput = document.getElementById('q');
+  const qRes = document.getElementById('qres');
+  const randBtn = document.getElementById('rand');
+  if (!qInput && !randBtn) return;
+
+  let vindex = null;
+  const loadIndex = () => {
+    if (vindex) return Promise.resolve(vindex);
+    if (!window.fetch) return Promise.resolve([]);
+    return fetch('v-index.json', { credentials: 'same-origin' })
+      .then((r) => { if (!r.ok) throw new Error(String(r.status)); return r.json(); })
+      .then((d) => { vindex = Array.isArray(d) ? d : []; return vindex; })
+      .catch(() => { vindex = []; return vindex; });
+  };
+
+  const norm = (s) => s.toLowerCase();
+
+  if (qInput && qRes) {
+    const render = (items) => {
+      if (items.length === 0) {
+        qRes.hidden = true;
+        qRes.replaceChildren();
+        return;
+      }
+      const frag = document.createDocumentFragment();
+      items.forEach((v) => {
+        const a = el('a', 'qres-item');
+        a.href = SLUG_RE.test(v.slug) ? 'v/' + v.slug + '/' : '#senal';
+        const ch = el('span', 'qres-ch', v.ch === 'ia60' ? 'IA' : 'NEG');
+        ch.classList.add(v.ch === 'ia60' ? 'qres-ia' : 'qres-club');
+        a.appendChild(ch);
+        a.appendChild(el('span', 'qres-title', typeof v.title === 'string' ? v.title.slice(0, 90) : ''));
+        frag.appendChild(a);
+      });
+      qRes.replaceChildren(frag);
+      qRes.hidden = false;
+    };
+
+    let timer = 0;
+    qInput.addEventListener('input', () => {
+      clearTimeout(timer);
+      timer = setTimeout(() => {
+        const q = norm(qInput.value.trim());
+        if (q.length < 2) { qRes.hidden = true; return; }
+        loadIndex().then((idx) => {
+          render(idx.filter((v) => norm(v.title || '').indexOf(q) !== -1).slice(0, 7));
+        });
+      }, 130);
+    });
+    qInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') { qInput.value = ''; qRes.hidden = true; }
+      if (e.key === 'Enter') {
+        const first = qRes.querySelector('.qres-item');
+        if (first) { e.preventDefault(); window.location.assign(first.getAttribute('href')); }
+      }
+    });
+    document.addEventListener('click', (e) => {
+      if (!qRes.contains(e.target) && e.target !== qInput) qRes.hidden = true;
+    });
+  }
+
+  if (randBtn) {
+    randBtn.addEventListener('click', () => {
+      loadIndex().then((idx) => {
+        const usable = idx.filter((v) => v && typeof v.slug === 'string' && SLUG_RE.test(v.slug));
+        if (usable.length > 0) {
+          const pick = usable[Math.floor(Math.random() * usable.length)];
+          window.location.assign('v/' + pick.slug + '/');
+          return;
+        }
+        const fallback = Array.from(document.querySelectorAll('#vgrid .vcard'))
+          .map((a) => a.getAttribute('href'))
+          .filter((h) => h && h.indexOf('v/') === 0);
+        if (fallback.length > 0) {
+          window.location.assign(fallback[Math.floor(Math.random() * fallback.length)]);
+        } else {
+          window.location.assign('archivo/');
+        }
+      });
+    });
+  }
 })();
