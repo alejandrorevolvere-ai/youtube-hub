@@ -1,0 +1,22 @@
+# Credenciales — nunca al repo
+*.pickle
+*.pkl
+.env
+.env.*
+*.token
+credentials*
+secrets*
+config/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Sistema/Editor
+Thumbs.db
+.DS_Store
+*.swp
+.idea/
+.vscode/

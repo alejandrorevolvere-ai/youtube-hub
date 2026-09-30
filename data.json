@@ -1,0 +1,123 @@
+{
+  "generated_at": "2026-09-30T01:42:20+00:00",
+  "channels": {
+    "club": {
+      "id": "UCKBRqrOcPPfwc_jxWesEItA",
+      "name": "El Club del Negocio",
+      "url": "https://www.youtube.com/channel/UCKBRqrOcPPfwc_jxWesEItA",
+      "accent": "coral",
+      "tags": [
+        "negocios",
+        "dinero",
+        "historias"
+      ],
+      "subscribers": 35,
+      "videos": 79,
+      "views": 8247,
+      "stats_source": "api",
+      "latest": [
+        {
+          "id": "p1GdG4IPYUQ",
+          "title": "Walmart: la historia COMPLETA de Sam Walton (de dependiente a $500B)",
+          "published": "2026-09-27",
+          "url": "https://www.youtube.com/watch?v=p1GdG4IPYUQ",
+          "thumb": "https://i.ytimg.com/vi/p1GdG4IPYUQ/hqdefault.jpg"
+        },
+        {
+          "id": "QUenfzcLkGU",
+          "title": "Netflix: El Error que lo Hizo Millonario",
+          "published": "2026-09-27",
+          "url": "https://www.youtube.com/watch?v=QUenfzcLkGU",
+          "thumb": "https://i.ytimg.com/vi/QUenfzcLkGU/hqdefault.jpg"
+        },
+        {
+          "id": "y12CPJujge8",
+          "title": "Google: el dato de dinero que nadie te contó 🤯",
+          "published": "2026-09-26",
+          "url": "https://www.youtube.com/watch?v=y12CPJujge8",
+          "thumb": "https://i.ytimg.com/vi/y12CPJujge8/hqdefault.jpg"
+        },
+        {
+          "id": "D0XSCj2v0eI",
+          "title": "Nike: de vender en el maletero a valer €50B 🚀",
+          "published": "2026-09-26",
+          "url": "https://www.youtube.com/watch?v=D0XSCj2v0eI",
+          "thumb": "https://i.ytimg.com/vi/D0XSCj2v0eI/hqdefault.jpg"
+        },
+        {
+          "id": "HFWoAIYCvk8",
+          "title": "Netflix: el error de €50M que casi lo destruye 🎬",
+          "published": "2026-09-26",
+          "url": "https://www.youtube.com/watch?v=HFWoAIYCvk8",
+          "thumb": "https://i.ytimg.com/vi/HFWoAIYCvk8/hqdefault.jpg"
+        },
+        {
+          "id": "E_7ZE_-ojL8",
+          "title": "Apple: el truco para ahorrar €500 al mes 💰",
+          "published": "2026-09-26",
+          "url": "https://www.youtube.com/watch?v=E_7ZE_-ojL8",
+          "thumb": "https://i.ytimg.com/vi/E_7ZE_-ojL8/hqdefault.jpg"
+        }
+      ]
+    },
+    "ia60": {
+      "id": "UC670GGGsL5Bl9bd5DCdTKAg",
+      "name": "IA en 60\"",
+      "url": "https://www.youtube.com/channel/UC670GGGsL5Bl9bd5DCdTKAg",
+      "accent": "acid",
+      "tags": [
+        "ia",
+        "herramientas",
+        "ahorro-de-tiempo"
+      ],
+      "subscribers": 1,
+      "videos": 50,
+      "views": 1984,
+      "stats_source": "api",
+      "latest": [
+        {
+          "id": "YyNfUQdhsZw",
+          "title": "Hablo con ChatGPT gratis por voz 🗣️",
+          "published": "2026-09-26",
+          "url": "https://www.youtube.com/watch?v=YyNfUQdhsZw",
+          "thumb": "https://i.ytimg.com/vi/YyNfUQdhsZw/hqdefault.jpg"
+        },
+        {
+          "id": "2Ah3VdZFkpM",
+          "title": "Resume 1 HORA de video en 30 seg con IA ⚡",
+          "published": "2026-09-26",
+          "url": "https://www.youtube.com/watch?v=2Ah3VdZFkpM",
+          "thumb": "https://i.ytimg.com/vi/2Ah3VdZFkpM/hqdefault.jpg"
+        },
+        {
+          "id": "CNPQXFgIN8c",
+          "title": "Haz que tu voz cante con IA (gratuito) 🎵",
+          "published": "2026-09-26",
+          "url": "https://www.youtube.com/watch?v=CNPQXFgIN8c",
+          "thumb": "https://i.ytimg.com/vi/CNPQXFgIN8c/hqdefault.jpg"
+        },
+        {
+          "id": "-WPT4RJfrnk",
+          "title": "Crea videos épicos con una foto 🎬",
+          "published": "2026-09-25",
+          "url": "https://www.youtube.com/watch?v=-WPT4RJfrnk",
+          "thumb": "https://i.ytimg.com/vi/-WPT4RJfrnk/hqdefault.jpg"
+        },
+        {
+          "id": "3U4IgMPekGk",
+          "title": "Ahorra 3 horas de trabajo hoy ⚡",
+          "published": "2026-09-25",
+          "url": "https://www.youtube.com/watch?v=3U4IgMPekGk",
+          "thumb": "https://i.ytimg.com/vi/3U4IgMPekGk/hqdefault.jpg"
+        },
+        {
+          "id": "-sNBOsjeFEM",
+          "title": "HeyGen crea tu clon IA idéntico en 60 segundos 🗣️",
+          "published": "2026-09-25",
+          "url": "https://www.youtube.com/watch?v=-sNBOsjeFEM",
+          "thumb": "https://i.ytimg.com/vi/-sNBOsjeFEM/hqdefault.jpg"
+        }
+      ]
+    }
+  }
+}
