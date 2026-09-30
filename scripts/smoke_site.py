@@ -40,9 +40,17 @@ lp = sorted((root / "v").glob("*/index.html"))[0]
 l = lp.read_text(encoding="utf-8")
 chk("lp-aff" in l, f"bloque afiliados en {lp.parent.name}")
 chk('rel="sponsored noopener noreferrer"' in l, "rel=sponsored en afiliados")
-nslot = len(re.findall(r"TODO-AFILIADO", l))
-chk(nslot == 2, f"{nslot} slots de afiliado en la landing")
 chk("lp-related" in l, "relacionados presentes")
+
+# tag de Amazon en todas las landings de negocio; slots IA siguen pendientes
+files = [(f, f.read_text(encoding="utf-8"))
+         for f in (root / "v").glob("*/index.html")]
+n_amz = sum(1 for _, t in files if "senalabierta-21" in t)
+n_quipu = sum(1 for _, t in files if "TODO-AFILIADO:quipu" in t)
+n_ia = sum(1 for _, t in files if "TODO-AFILIADO:elevenlabs" in t)
+chk(n_amz == n_quipu and n_amz > 0,
+    f"Amazon tag (senalabierta-21) en {n_amz} landings club == quipu {n_quipu}")
+chk(n_ia > 0, f"{n_ia} landings IA con slots de afiliado pendientes")
 
 lp2 = sorted((root / "v").glob("*/index.html"))[10]
 l2 = lp2.read_text(encoding="utf-8")
@@ -59,8 +67,8 @@ nhit = h.count('src="img/hitos/')
 chk(nhit == 8, f"{nhit} imagenes de hitos referenciadas")
 chk("05 / La pr" in h, "watch renumerado 05")
 chk("04 / L" in h, "hitos numerado 04")
-chk("ko-fi.com" in h, "footer con Ko-fi")
-chk("buttondown.email" in h, "footer con newsletter")
+chk("ko-fi.com/alejandrorevolvere" in h, "footer con Ko-fi")
+chk("buttondown.com/revolvere" in h, "footer con newsletter")
 chk("archivo/" in h, "index enlaza archivo")
 chk("feed.xml" in h, "head enlaza feed")
 for p in ["feed.xml", "archivo.js", "404.html", "v-index.json",

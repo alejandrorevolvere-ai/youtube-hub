@@ -49,16 +49,17 @@ MESES = ["ENE", "FEB", "MAR", "ABR", "MAY", "JUN",
          "JUL", "AGO", "SEP", "OCT", "NOV", "DIC"]
 
 # Enlaces de afiliado por canal. El href es el sitio oficial con UTM de
-# afiliado; los slots marcados con "TODO-AFILIADO" se sustituyen por el enlace
-# rastreado (tracking id / tag / ref) cuando el creador se dé de alta.
+# afiliado; cuando exista tracking id se añade su param (tag/ref) y el slot
+# pasa a ser el propio id (los marcados con "TODO-AFILIADO" siguen pendientes
+# de alta del creador).
 AFF_UTM = "?utm_source=senalabierta&utm_medium=affiliate&utm_campaign"
 AFFILIATES = {
     "club": [
         {
-            "slot": "TODO-AFILIADO:amazon-es",
+            "slot": "senalabierta-21",
             "name": "Amazon",
             "blurb": "Libros de las historias de negocio de este canal",
-            "url": "https://www.amazon.es/s?k=libros+de+negocio&" + AFF_UTM[1:] + "=amazon",
+            "url": "https://www.amazon.es/s?k=libros+de+negocio&tag=senalabierta-21&" + AFF_UTM[1:] + "=amazon",
         },
         {
             "slot": "TODO-AFILIADO:quipu",

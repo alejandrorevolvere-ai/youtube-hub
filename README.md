@@ -33,13 +33,13 @@ Sitio estático del hub editorial **Señal Abierta** — presentación de los ca
 | `scripts/package_site.py` | Empaqueta `dist/` con solo lo público (previo al deploy) |
 | `promo/promo.md` | Textos de promoción listos para pegar |
 
-### Monetización (slots pendientes de tus IDs)
+### Monetización
 
-- Enlaces de afiliado en las fichas: buscar `TODO-AFILIADO` en
-  `scripts/build_pages.py` (`AFFILIATES`) y sustituir por los enlaces
-  rastreados (Amazon Associates, Quipu, ElevenLabs, NordVPN).
-- Footer del hub: `ko-fi.com` y `buttondown.email` en `index.html` → URLs
-  propias cuando crees las cuentas.
+- Amazon Afiliados: tag `senalabierta-21` ya enchufado en `AFFILIATES`
+  (`scripts/build_pages.py`); pendientes de alta: Quipu, ElevenLabs y
+  NordVPN (slots `TODO-AFILIADO`).
+- Footer del hub: Ko-fi (`ko-fi.com/alejandrorevolvere`) y Buttondown
+  (`buttondown.com/revolvere`) configurados en `index.html`.
 
 ## Actualizar contenido y redesplegar
 
