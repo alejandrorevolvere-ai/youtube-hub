@@ -330,6 +330,8 @@ section{scroll-margin-top:104px}
 .book-videos a{color:var(--muted);text-decoration:underline;text-underline-offset:3px}
 .book-videos a:hover{color:var(--acid)}
 .book .button{align-self:flex-start;margin-top:6px}
+.cta-strip{display:flex;justify-content:space-between;align-items:center;gap:34px;flex-wrap:wrap;padding:64px 0;border-top:1px solid var(--line);margin-top:70px}
+.cta-strip-txt{font:700 clamp(24px,3.2vw,38px)/1.1 var(--display);letter-spacing:-.04em;margin:0;max-width:640px}
 .arch{padding-bottom:110px}
 .arch-grid{grid-template-columns:repeat(4,1fr)}
 .arch-empty{font:400 13px var(--mono);color:var(--muted);padding:50px 0}

@@ -94,11 +94,16 @@ for p in ["feed.xml", "archivo.js", "404.html", "v-index.json",
 
 # XSS: ninguna landing con scripts inline ni texto sin escapar en atributos
 bad = 0
+no_news = 0
 for f in (root / "v").glob("*/index.html"):
     txt = f.read_text(encoding="utf-8")
     if re.search(r"<script(?![^>]*\ssrc=)(?![^>]*application/ld\+json)", txt):
         bad += 1
+    if "buttondown.com/revolvere" not in txt:
+        no_news += 1
 chk(bad == 0, f"cero scripts inline en las {len(list((root / 'v').glob('*/index.html')))} landings")
+chk(no_news == 0, "newsletter en el pie de las 94 landings")
+chk("Suscribirme a la newsletter" in h, "CTA newsletter en el hub")
 
 print("ALL OK" if ok else "HAY FALLOS")
 sys.exit(0 if ok else 1)

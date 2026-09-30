@@ -25,6 +25,11 @@ identificable y las URLs queden diferenciadas.
 | Descripción (About) del canal | `https://senalabierta.pages.dev/?utm_source=youtube&utm_medium=channel_about&utm_campaign=senal_abierta` |
 | Comentario fijado en vídeos | `https://senalabierta.pages.dev/?utm_source=youtube&utm_medium=pinned_comment&utm_campaign=senal_abierta` |
 | Newsletter / mailing | `https://senalabierta.pages.dev/?utm_source=newsletter&utm_medium=email&utm_campaign=senal_abierta` |
+| CTA descripciones de YouTube | `https://senalabierta.pages.dev/v/{slug}/?utm_source=youtube&utm_medium=description&utm_campaign=senal_abierta` |
+| Pie de landings (newsletter) | `https://buttondown.com/revolvere?utm_source=senalabierta&utm_medium=newsletter&utm_campaign=landing` |
+| CTA hub (botón newsletter) | `https://buttondown.com/revolvere?utm_source=senalabierta&utm_medium=newsletter&utm_campaign=hub` |
+| Ko-fi (footer/descripciones) | `https://ko-fi.com/alejandrorevolvere?utm_source=senalabierta&utm_medium=kofi&utm_campaign=senal_abierta` |
+| Libros (`/libros/` y descripciones) | `https://www.amazon.es/dp/{ASIN}?tag=senalabierta-21&utm_source=senalabierta&utm_medium=affiliate&utm_campaign=libros` |
 | Firma de foro / Discord | `https://senalabierta.pages.dev/?utm_source=foro&utm_medium=firma&utm_campaign=senal_abierta` |
 | Firma de email | `https://senalabierta.pages.dev/?utm_source=email&utm_medium=firma&utm_campaign=senal_abierta` |
 

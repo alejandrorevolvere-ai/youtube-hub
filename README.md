@@ -13,6 +13,7 @@ Sitio estático del hub editorial **Señal Abierta** — presentación de los ca
 | `index.html` | Hub principal (hero, canales, últimos vídeos, manifiesto, hitos) |
 | `v/<slug>/index.html` | Landing SEO por vídeo (generada, no editar a mano) |
 | `archivo/index.html` | Archivo completo filtrable por canal (generado) |
+| `libros/index.html` | Libros recomendados con afiliación Amazon (generado) |
 | `404.html` | Página no encontrada (la sirve Cloudflare Pages) |
 | `styles.css` | Diseño editorial + fuentes auto-alojadas (`fonts/`) |
 | `app.js` | Reveal, count-up, tarjetas, buscador y "vídeo aleatorio" |
@@ -31,8 +32,10 @@ Sitio estático del hub editorial **Señal Abierta** — presentación de los ca
 | `scripts/fetch_hitos.py` | Descarga imágenes PD/CC0 de Commons y las pasa a duotone |
 | `scripts/csp_hashes.py` | Regenera la CSP (meta de index.html + `_headers`) |
 | `scripts/sync_video_descriptions.py` | Anade/verifica el bloque CTA en las descripciones de YouTube (dry-run por defecto) |
+| `scripts/newsletter_draft.py` | Genera el digest semanal de la newsletter (dry-run por defecto; `--apply` lo crea como borrador en Buttondown) |
 | `scripts/package_site.py` | Empaqueta `dist/` con solo lo público (previo al deploy) |
 | `promo/promo.md` | Textos de promoción listos para pegar |
+| `promo/flywheel.md` | Checklist semanal del loop YouTube → hub → newsletter → Amazon |
 
 ### Monetización
 
@@ -46,6 +49,10 @@ Sitio estático del hub editorial **Señal Abierta** — presentación de los ca
   (`buttondown.com/revolvere`) configurados en `index.html`.
 - Descripciones de YouTube: bloque CTA (hub + newsletter + Ko-fi) sincronizado
   en los 94 videos con `scripts/sync_video_descriptions.py`.
+- Newsletter: `scripts/newsletter_draft.py` arma el borrador semanal
+  (estrenos + libro de la semana); clave en `.env` (`BUTTONDOWN_API_KEY`).
+- CTA de suscripcion: boton en el hub y enlace en el pie de las 94 landings
+  (UTM `utm_medium=newsletter`).
 
 ## Actualizar contenido y redesplegar
 

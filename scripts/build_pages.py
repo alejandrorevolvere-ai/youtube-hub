@@ -367,7 +367,7 @@ def video_page(v: dict, ch_key: str, ch_meta: dict, related: list, csp: str) -> 
       {related_html}
     </article>
   </main>
-  <footer class="footer shell"><span>© 2026 SEÑAL ABIERTA</span><span><a href="../../archivo/">Archivo completo</a> <b>✳</b> <a href="{BASE}/feed.xml">Feed</a></span><span><a href="../../">Volver al hub ↑</a></span></footer>
+   <footer class="footer shell"><span>© 2026 SEÑAL ABIERTA</span><span><a href="../../archivo/">Archivo completo</a> <b>✳</b> <a href="https://buttondown.com/revolvere?utm_source=senalabierta&amp;utm_medium=newsletter&amp;utm_campaign=landing" target="_blank" rel="noopener noreferrer" data-aff="newsletter">Newsletter ↗</a> <b>✳</b> <a href="{BASE}/feed.xml">Feed</a></span><span><a href="../../">Volver al hub ↑</a></span></footer>
   <script src="../../landing.js"></script>
 </body>
 </html>
