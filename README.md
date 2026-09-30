@@ -23,6 +23,7 @@ Sitio estático del hub editorial **Señal Abierta** — presentación de los ca
 | `scripts/fetch_channel_data.py` | Regenera `data.json` y `content/videos.json` |
 | `scripts/build_pages.py` | Genera fichas `/v/<slug>/`, sitemap y llms.txt |
 | `scripts/csp_hashes.py` | Regenera la CSP (meta de index.html + `_headers`) |
+| `scripts/package_site.py` | Empaqueta `dist/` con solo lo público (previo al deploy) |
 | `promo/promo.md` | Textos de promoción listos para pegar |
 
 ## Actualizar contenido y redesplegar
@@ -32,18 +33,26 @@ $env:YT_TOKEN_PICKLE = "<ruta local a tu token OAuth de YouTube>"
 python scripts/fetch_channel_data.py
 python scripts/build_pages.py
 python scripts/csp_hashes.py        # solo si tocaste un <script> inline
-npx wrangler pages deploy . --project-name senalabierta --branch=main
+python scripts/package_site.py      # empaqueta dist/ (lo único público)
+npx wrangler pages deploy dist --project-name senalabierta --branch=main --commit-dirty=true
 ```
+
+`wrangler pages deploy` no respeta `.cfignore`/`.assetsignore`, por eso el
+filtro vive en `scripts/package_site.py`: `dist/` solo contiene lo público
+(nunca `scripts/`, `promo/`, `content/`, `.git*`).
 
 Sin `YT_TOKEN_PICKLE`, las estadísticas se conservan del `data.json` anterior
 (solo se actualizan los vídeos vía RSS). **El token nunca se copia al repo.**
 
 ## Despliegue
 
-Cloudflare Pages (proyecto `senalabierta`), deploy directo con wrangler desde
-local. El repo de GitHub es copia de seguridad del código; no está enlazado
-con Cloudflare. Antigua URL `alejandrorevolvere-ai.github.io/youtube-hub/`
-redirige a la nueva desde el branch `gh-pages`.
+- **Producción:** Cloudflare Pages clásico, proyecto `senalabierta`
+  (https://senalabierta.pages.dev/), deploy con wrangler desde local; el
+  directorio `dist/` es la única fuente de assets.
+- **Respaldo de código:** repo GitHub (`main`), sin conexión con Cloudflare.
+- **URL antigua** `alejandrorevolvere-ai.github.io/youtube-hub/`: sirve un
+  stub con redirect a la nueva URL desde el branch `gh-pages` (canonical +
+  `noindex` + JS que conserva query/hash para no romper UTM antiguos).
 
 ## Seguridad
 

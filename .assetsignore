@@ -1,0 +1,11 @@
+.git
+.gitignore
+.cfignore
+.assetsignore
+.wrangler
+.dev.vars*
+wrangler.jsonc
+scripts
+promo
+content
+README.md
