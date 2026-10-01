@@ -38,9 +38,9 @@ El loop: **vídeo nuevo → descripción con CTA → hub → newsletter → libr
 
 - [ ] Intro del perfil y 3 enlaces (hub, canal, newsletter)
 - [x] Hecho: enlace en footer del hub + en las 94 descripciones
-- [ ] Webhook activo: `https://senalabierta.pages.dev/api/kofi` en
-      Ko-fi → Webhooks → Send a test (token en env-var `KOFI_TOKEN`,
-      pagos en KV con prefijo `kofi:`)
+- [x] Webhook activo: `https://senalabierta.pages.dev/api/kofi` en
+      Ko-fi → Webhooks (verificado 2026-10-01: 2 tests recibidos y
+      registrados en KV con prefijo `kofi:`)
 
 ## Medición (cada lunes)
 
@@ -56,8 +56,9 @@ El loop: **vídeo nuevo → descripción con CTA → hub → newsletter → libr
 ## Infra (una vez)
 
 - [x] `.env` con `BUTTONDOWN_API_KEY` (plantilla en `.env.example`)
-- [ ] Cobro: PayPal (o Stripe) conectado en Ko-fi → Payment Settings;
-      Amazon/NordVPN/ElevenLabs pagan por su propio canal (IBAN o PayPal
-      configurado en cada plataforma, no se conecta al hub)
+- [x] Cobro: PayPal (o Stripe) conectado en Ko-fi → Payment Settings
+      (confirmado por Alejandro, 2026-10-01); Amazon/NordVPN/ElevenLabs pagan
+      por su propio canal (IBAN o PayPal configurado en cada plataforma,
+      no se conecta al hub)
 - [ ] Google Search Console: propiedad + sitemap (102 URLs)
 - [ ] QA visual del hub, `/libros/` y landings (capturas en pantalla)
