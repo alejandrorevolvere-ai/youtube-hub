@@ -43,7 +43,8 @@ El loop: **vídeo nuevo → descripción con CTA → hub → newsletter → libr
       Ko-fi → Webhooks (verificado 2026-10-01: 2 tests recibidos y
       registrados en KV con prefijo `kofi:`)
 - [x] Producto 1 del shop generado: `promo/productos/30-prompts/30-prompts-senal-abierta.pdf`
-      (30 prompts + 3 recetas, 14 pág.) → subir a Ko-fi con `promo/kofi.md` §3
+      (30 prompts + 3 recetas, 14 pág.) → **PUBLICADO 2026-10-02:
+      https://ko-fi.com/s/c7fd921388** (5 USD PWYW, preview = Tip #50)
 - [x] `GET /api/kofi?limit=N` en vivo (lista de pagos para dashboard/n8n)
 - [x] Workflow n8n `senalabierta-kofi-pagos` importado y activado
       (poll cada 3 h; requiere `n8n start` en el PC; guía `promo/n8n.md`)

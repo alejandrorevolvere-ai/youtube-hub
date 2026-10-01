@@ -1,9 +1,11 @@
 # Ko-fi — pack para empezar a ganar
 
-Estado (2026-10-01): PayPal conectado ✅ · webhook `/api/kofi` verificado ✅ ·
-bio base ✅ · **producto 1 del shop generado** (30 prompts, PDF). FALTAN:
-avatar, 3 enlaces, categorías, tiers de membresía, subir el producto al shop
-y promoción del enlace. Este fichero tiene todo listo para pegar.
+Estado (2026-10-02): PayPal conectado ✅ · webhook `/api/kofi` verificado ✅ ·
+bio base ✅ · **PRODUCTO PUBLICADO ✅ → https://ko-fi.com/s/c7fd921388**
+(5 USD PWYW · thumbnail `portada-kofi.png` · preview = Tip #50
+`youtube.com/watch?v=2uDS8sIbM9o`). FALTAN:
+avatar, 3 enlaces, categorías, tiers de membresía y promoción del enlace.
+Este fichero tiene todo listo para pegar.
 
 > **Ko-fi no tiene API pública**: nada de esto se puede automatizar desde
 > aquí — son 10-15 min manuales en ko-fi.com con este fichero al lado.
