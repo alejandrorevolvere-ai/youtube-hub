@@ -17,7 +17,7 @@ def chk(c, m):
 
 
 vix = json.loads((root / "v-index.json").read_text(encoding="utf-8"))
-chk(len(vix) == 94, f"v-index.json con {len(vix)} entradas")
+chk(len(vix) == 98, f"v-index.json con {len(vix)} entradas")
 
 t = ET.parse(root / "feed.xml")
 ns = {"a": "http://www.w3.org/2005/Atom"}
@@ -25,13 +25,14 @@ chk(len(t.getroot().findall("a:entry", ns)) == 15, "feed.xml con 15 entradas")
 
 sm = (root / "sitemap.xml").read_text(encoding="utf-8")
 nloc = sm.count("<loc>")
-chk(nloc == 97, f"sitemap con {nloc} URLs")
+chk(nloc == 102, f"sitemap con {nloc} URLs")
 chk("/archivo/" in sm, "sitemap incluye /archivo/")
 chk("/libros/" in sm, "sitemap incluye /libros/")
+chk("/legal/" in sm, "sitemap incluye /legal/")
 
 arch = (root / "archivo" / "index.html").read_text(encoding="utf-8")
 nvc = arch.count('class="vcard"')
-chk(nvc == 94, f"archivo con {nvc} tarjetas")
+chk(nvc == 98, f"archivo con {nvc} tarjetas")
 chk("archivo.js" in arch, "archivo usa archivo.js externo")
 chk("Content-Security-Policy" in arch, "archivo con meta CSP")
 inline = re.findall(r"<script(?![^>]*\ssrc=)[^>]*>", arch)
@@ -63,6 +64,11 @@ chk(n_amz == n_quipu and n_amz > 0,
     f"Amazon tag (senalabierta-21) en {n_amz} landings club == quipu {n_quipu}")
 chk(n_ia > 0, f"{n_ia} landings IA con slots de afiliado pendientes")
 
+# divulgacion de Amazon obligatoria en toda landing con enlace de Amazon
+disc = sum(1 for _, t in files if "Afiliado de Amazon" in t)
+chk(disc == n_amz,
+    f"divulgacion de Amazon en {disc} landings == {n_amz} con enlace Amazon")
+
 lp2 = sorted((root / "v").glob("*/index.html"))[10]
 l2 = lp2.read_text(encoding="utf-8")
 chk("lp-aff" in l2, f"bloque afiliados en {lp2.parent.name} (otro canal)")
@@ -82,6 +88,7 @@ chk("ko-fi.com/alejandrorevolvere" in h, "footer con Ko-fi")
 chk("buttondown.com/revolvere" in h, "footer con newsletter")
 chk("archivo/" in h, "index enlaza archivo")
 chk("libros/" in h, "index enlaza libros")
+chk("legal/" in h, "index enlaza /legal/")
 chk("feed.xml" in h, "head enlaza feed")
 lib = (root / "libros" / "index.html").read_text(encoding="utf-8")
 chk(lib.count('class="book"') == 11, "libros con 11 fichas")
@@ -89,8 +96,25 @@ chk("tag=senalabierta-21" in lib and "1984881884" in lib,
     "libros con links ASIN + tag")
 chk("Afiliado de Amazon" in lib, "divulgacion de Amazon en libros")
 for p in ["feed.xml", "archivo.js", "404.html", "v-index.json",
-          "libros/index.html", "img/hitos/turing.webp", "img/hitos/CREDITS.md"]:
+          "libros/index.html", "img/hitos/turing.webp",
+          "img/hitos/CREDITS.md", "legal/index.html", "deploy.ps1",
+          "scripts/indexnow_ping.py"]:
     chk((root / p).exists(), f"existe {p}")
+
+# pagina legal (LSSI) y clave IndexNow
+lg = (root / "legal" / "index.html").read_text(encoding="utf-8")
+chk("Content-Security-Policy" in lg, "legal con meta CSP")
+chk("LSSI" in lg, "legal cita la LSSI-CE")
+chk("Afiliado de Amazon" in lg, "divulgacion de Amazon en /legal/")
+chk("[PENDIENTE" in lg, "legal con placeholders del titular marcados")
+chk("legal/" in arch, "archivo enlaza /legal/")
+kfs = [p.name for p in root.glob("*.txt")
+       if p.name not in ("robots.txt", "llms.txt")]
+chk(len(kfs) == 1,
+    f"clave IndexNow en la raiz ({kfs[0] if kfs else 'AUSENTE'})")
+if kfs:
+    chk((root / kfs[0]).read_text(encoding="ascii").strip() ==
+        kfs[0][:-4], "fichero de clave IndexNow contiene su clave")
 
 # XSS: ninguna landing con scripts inline ni texto sin escapar en atributos
 bad = 0
@@ -102,7 +126,7 @@ for f in (root / "v").glob("*/index.html"):
     if "buttondown.com/revolvere" not in txt:
         no_news += 1
 chk(bad == 0, f"cero scripts inline en las {len(list((root / 'v').glob('*/index.html')))} landings")
-chk(no_news == 0, "newsletter en el pie de las 94 landings")
+chk(no_news == 0, "newsletter en el pie de las 98 landings")
 chk("Suscribirme a la newsletter" in h, "CTA newsletter en el hub")
 
 print("ALL OK" if ok else "HAY FALLOS")

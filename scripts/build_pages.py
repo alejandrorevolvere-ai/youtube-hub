@@ -207,13 +207,16 @@ def aff_html(ch_key: str, vid: str | None = None) -> str:
           <span>{esc(blurb)}</span>
           <em aria-hidden="true">↗</em>
         </a>""")
+    note = AFF_NOTE
+    if any(a["slot"] == "senalabierta-21" for a in items):
+        note = f"{AFF_NOTE} {AMZ_DISCLOSURE}"
     return f"""\
       <section class="lp-aff" aria-label="Herramientas y lecturas">
         <p class="eyebrow">/ Herramientas y lecturas</p>
         <div class="aff-list">
 {chr(10).join(links)}
         </div>
-        <p class="aff-note">{esc(AFF_NOTE)}</p>
+        <p class="aff-note">{esc(note)}</p>
       </section>"""
 
 
@@ -367,7 +370,7 @@ def video_page(v: dict, ch_key: str, ch_meta: dict, related: list, csp: str) -> 
       {related_html}
     </article>
   </main>
-   <footer class="footer shell"><span>© 2026 SEÑAL ABIERTA</span><span><a href="../../archivo/">Archivo completo</a> <b>✳</b> <a href="https://buttondown.com/revolvere?utm_source=senalabierta&amp;utm_medium=newsletter&amp;utm_campaign=landing" target="_blank" rel="noopener noreferrer" data-aff="newsletter">Newsletter ↗</a> <b>✳</b> <a href="{BASE}/feed.xml">Feed</a></span><span><a href="../../">Volver al hub ↑</a></span></footer>
+   <footer class="footer shell"><span>© 2026 SEÑAL ABIERTA</span><span><a href="../../archivo/">Archivo completo</a> <b>✳</b> <a href="https://buttondown.com/revolvere?utm_source=senalabierta&amp;utm_medium=newsletter&amp;utm_campaign=landing" target="_blank" rel="noopener noreferrer" data-aff="newsletter">Newsletter ↗</a> <b>✳</b> <a href="{BASE}/feed.xml">Feed</a> <b>✳</b> <a href="../../legal/">Legal</a></span><span><a href="../../">Volver al hub ↑</a></span></footer>
   <script src="../../landing.js"></script>
 </body>
 </html>
@@ -391,6 +394,11 @@ def build_sitemap(videos: list) -> None:
     <lastmod>{today}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+  </url>""", f"""  <url>
+    <loc>{BASE}/legal/</loc>
+    <lastmod>{today}</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
   </url>"""]
     for v in videos:
         rows.append(f"""  <url>
@@ -510,7 +518,7 @@ def archive_page(videos: list, channels: dict, csp: str) -> str:
       <p class="arch-empty" hidden>No hay resultados con ese filtro.</p>
     </section>
   </main>
-  <footer class="footer shell"><span>© 2026 SEÑAL ABIERTA</span><span><a href="../feed.xml">Feed Atom</a> <b>✳</b> <a href="../">Hub ↑</a></span><span><a href="../#inicio">Volver arriba ↑</a></span></footer>
+  <footer class="footer shell"><span>© 2026 SEÑAL ABIERTA</span><span><a href="../feed.xml">Feed Atom</a> <b>✳</b> <a href="../legal/">Legal</a> <b>✳</b> <a href="../">Hub ↑</a></span><span><a href="../#inicio">Volver arriba ↑</a></span></footer>
   <script src="../archivo.js"></script>
 </body>
 </html>
@@ -576,7 +584,7 @@ def libros_page(books: list, videos: list, csp: str) -> str:
       </div>
     </section>
   </main>
-  <footer class="footer shell"><span>© 2026 SEÑAL ABIERTA</span><span><a href="../archivo/">Archivo</a> <b>✳</b> <a href="../feed.xml">Feed</a></span><span><a href="../">Hub ↑</a></span></footer>
+  <footer class="footer shell"><span>© 2026 SEÑAL ABIERTA</span><span><a href="../archivo/">Archivo</a> <b>✳</b> <a href="../feed.xml">Feed</a> <b>✳</b> <a href="../legal/">Legal</a></span><span><a href="../">Hub ↑</a></span></footer>
 </body>
 </html>
 """
@@ -605,6 +613,7 @@ def build_llms(videos: list, channels: dict) -> None:
         f"- Inicio: {BASE}/",
         f"- Archivo completo (filtra por canal): {BASE}/archivo/",
         f"- Libros recomendados (con enlaces al vídeo): {BASE}/libros/",
+        f"- Aviso legal: {BASE}/legal/",
         f"- Fichas de vídeo: {BASE}/v/<slug>/",
         f"- Datos en JSON: {BASE}/data.json",
         f"- Feed Atom: {BASE}/feed.xml",
@@ -687,7 +696,7 @@ def main() -> int:
     print(f"OK: {written} fichas en v/, {removed} retiradas, "
           f"archivo con {len(videos)}, libros con {len(LIBROS)}, "
           f"feed de {min(15, len(videos))} entradas, "
-          f"v-index.json, sitemap con {len(videos) + 3} URLs, llms.txt")
+          f"v-index.json, sitemap con {len(videos) + 4} URLs, llms.txt")
     return 0
 
 

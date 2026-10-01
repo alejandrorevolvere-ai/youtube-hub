@@ -16,6 +16,7 @@ el mismo creador. Cada vídeo tiene ficha propia (resumen + enlace).
 - Inicio: https://senalabierta.pages.dev/
 - Archivo completo (filtra por canal): https://senalabierta.pages.dev/archivo/
 - Libros recomendados (con enlaces al vídeo): https://senalabierta.pages.dev/libros/
+- Aviso legal: https://senalabierta.pages.dev/legal/
 - Fichas de vídeo: https://senalabierta.pages.dev/v/<slug>/
 - Datos en JSON: https://senalabierta.pages.dev/data.json
 - Feed Atom: https://senalabierta.pages.dev/feed.xml
@@ -24,6 +25,10 @@ el mismo creador. Cada vídeo tiene ficha propia (resumen + enlace).
 
 ## Vídeos recientes
 
+- [La regla 50/30/20 para ahorrar](https://senalabierta.pages.dev/v/la-regla-50-30-20-para-ahorrar/) — El Club del Negocio, 2026-10-01
+- [La ONU advierte sobre la IA](https://senalabierta.pages.dev/v/la-onu-advierte-sobre-la-ia/) — IA en 60", 2026-10-01
+- [El invento que destruyó a Kodak](https://senalabierta.pages.dev/v/el-invento-que-destruyo-a-kodak/) — El Club del Negocio, 2026-09-30
+- [Resume PDFs de 100 páginas en segundos con Google](https://senalabierta.pages.dev/v/resume-pdfs-de-100-paginas-en-segundos-con-google/) — IA en 60", 2026-09-30
 - [Walmart: la historia COMPLETA de Sam Walton (de dependiente a $500B)](https://senalabierta.pages.dev/v/walmart-la-historia-completa-de-sam-walton-de-dependiente-a-500b/) — El Club del Negocio, 2026-09-27
 - [Netflix: El Error que lo Hizo Millonario](https://senalabierta.pages.dev/v/netflix-el-error-que-lo-hizo-millonario/) — El Club del Negocio, 2026-09-27
 - [Google: el dato de dinero que nadie te contó 🤯](https://senalabierta.pages.dev/v/google-el-dato-de-dinero-que-nadie-te-conto/) — El Club del Negocio, 2026-09-26
@@ -35,7 +40,3 @@ el mismo creador. Cada vídeo tiene ficha propia (resumen + enlace).
 - [Resume 1 HORA de video en 30 seg con IA ⚡](https://senalabierta.pages.dev/v/resume-1-hora-de-video-en-30-seg-con-ia/) — IA en 60", 2026-09-26
 - [Haz que tu voz cante con IA (gratuito) 🎵](https://senalabierta.pages.dev/v/haz-que-tu-voz-cante-con-ia-gratuito/) — IA en 60", 2026-09-26
 - [Spotify: El Error que lo Hizo Millonario](https://senalabierta.pages.dev/v/spotify-el-error-que-lo-hizo-millonario/) — El Club del Negocio, 2026-09-25
-- [Crea videos épicos con una foto 🎬](https://senalabierta.pages.dev/v/crea-videos-epicos-con-una-foto/) — IA en 60", 2026-09-25
-- [Ahorra 3 horas de trabajo hoy ⚡](https://senalabierta.pages.dev/v/ahorra-3-horas-de-trabajo-hoy/) — IA en 60", 2026-09-25
-- [HeyGen crea tu clon IA idéntico en 60 segundos 🗣️](https://senalabierta.pages.dev/v/heygen-crea-tu-clon-ia-identico-en-60-segundos/) — IA en 60", 2026-09-25
-- [Foto PROFESIONAL con IA (sin fotografo) 🎵](https://senalabierta.pages.dev/v/foto-profesional-con-ia-sin-fotografo/) — IA en 60", 2026-09-25

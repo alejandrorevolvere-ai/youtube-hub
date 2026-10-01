@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-30T09:35:54+00:00",
+  "generated_at": "2026-10-01T09:40:38+00:00",
   "channels": {
     "club": {
       "id": "UCKBRqrOcPPfwc_jxWesEItA",
@@ -14,8 +14,24 @@
       "subscribers": 35,
       "videos": 79,
       "views": 8247,
-      "stats_source": "api",
+      "stats_source": "cached",
       "latest": [
+        {
+          "id": "NlJG_aVERzE",
+          "title": "La regla 50/30/20 para ahorrar",
+          "published": "2026-10-01",
+          "url": "https://www.youtube.com/watch?v=NlJG_aVERzE",
+          "thumb": "https://i.ytimg.com/vi/NlJG_aVERzE/hqdefault.jpg",
+          "slug": "la-regla-50-30-20-para-ahorrar"
+        },
+        {
+          "id": "jHQYg_0KDQ4",
+          "title": "El invento que destruyó a Kodak",
+          "published": "2026-09-30",
+          "url": "https://www.youtube.com/watch?v=jHQYg_0KDQ4",
+          "thumb": "https://i.ytimg.com/vi/jHQYg_0KDQ4/hqdefault.jpg",
+          "slug": "el-invento-que-destruyo-a-kodak"
+        },
         {
           "id": "p1GdG4IPYUQ",
           "title": "Walmart: la historia COMPLETA de Sam Walton (de dependiente a $500B)",
@@ -47,22 +63,6 @@
           "url": "https://www.youtube.com/watch?v=D0XSCj2v0eI",
           "thumb": "https://i.ytimg.com/vi/D0XSCj2v0eI/hqdefault.jpg",
           "slug": "nike-de-vender-en-el-maletero-a-valer-50b"
-        },
-        {
-          "id": "HFWoAIYCvk8",
-          "title": "Netflix: el error de €50M que casi lo destruye 🎬",
-          "published": "2026-09-26",
-          "url": "https://www.youtube.com/watch?v=HFWoAIYCvk8",
-          "thumb": "https://i.ytimg.com/vi/HFWoAIYCvk8/hqdefault.jpg",
-          "slug": "netflix-el-error-de-50m-que-casi-lo-destruye"
-        },
-        {
-          "id": "E_7ZE_-ojL8",
-          "title": "Apple: el truco para ahorrar €500 al mes 💰",
-          "published": "2026-09-26",
-          "url": "https://www.youtube.com/watch?v=E_7ZE_-ojL8",
-          "thumb": "https://i.ytimg.com/vi/E_7ZE_-ojL8/hqdefault.jpg",
-          "slug": "apple-el-truco-para-ahorrar-500-al-mes"
         }
       ]
     },
@@ -79,8 +79,24 @@
       "subscribers": 1,
       "videos": 50,
       "views": 1984,
-      "stats_source": "api",
+      "stats_source": "cached",
       "latest": [
+        {
+          "id": "JHTWd2Ji0pQ",
+          "title": "La ONU advierte sobre la IA",
+          "published": "2026-10-01",
+          "url": "https://www.youtube.com/watch?v=JHTWd2Ji0pQ",
+          "thumb": "https://i.ytimg.com/vi/JHTWd2Ji0pQ/hqdefault.jpg",
+          "slug": "la-onu-advierte-sobre-la-ia"
+        },
+        {
+          "id": "8j6BE1ZX7yI",
+          "title": "Resume PDFs de 100 páginas en segundos con Google",
+          "published": "2026-09-30",
+          "url": "https://www.youtube.com/watch?v=8j6BE1ZX7yI",
+          "thumb": "https://i.ytimg.com/vi/8j6BE1ZX7yI/hqdefault.jpg",
+          "slug": "resume-pdfs-de-100-paginas-en-segundos-con-google"
+        },
         {
           "id": "YyNfUQdhsZw",
           "title": "Hablo con ChatGPT gratis por voz 🗣️",
@@ -112,22 +128,6 @@
           "url": "https://www.youtube.com/watch?v=-WPT4RJfrnk",
           "thumb": "https://i.ytimg.com/vi/-WPT4RJfrnk/hqdefault.jpg",
           "slug": "crea-videos-epicos-con-una-foto"
-        },
-        {
-          "id": "3U4IgMPekGk",
-          "title": "Ahorra 3 horas de trabajo hoy ⚡",
-          "published": "2026-09-25",
-          "url": "https://www.youtube.com/watch?v=3U4IgMPekGk",
-          "thumb": "https://i.ytimg.com/vi/3U4IgMPekGk/hqdefault.jpg",
-          "slug": "ahorra-3-horas-de-trabajo-hoy"
-        },
-        {
-          "id": "-sNBOsjeFEM",
-          "title": "HeyGen crea tu clon IA idéntico en 60 segundos 🗣️",
-          "published": "2026-09-25",
-          "url": "https://www.youtube.com/watch?v=-sNBOsjeFEM",
-          "thumb": "https://i.ytimg.com/vi/-sNBOsjeFEM/hqdefault.jpg",
-          "slug": "heygen-crea-tu-clon-ia-identico-en-60-segundos"
         }
       ]
     }

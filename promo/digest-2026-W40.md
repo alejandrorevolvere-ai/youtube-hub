@@ -1,7 +1,9 @@
-Asunto: Señal Abierta · 18 estrenos esta semana (01/10)
+Asunto: Señal Abierta · 20 estrenos esta semana (01/10)
 
 # Señal Abierta — Estrenos del 24/09 al 01/10:
 
+- **[El invento que destruyó a Kodak](https://senalabierta.pages.dev/v/el-invento-que-destruyo-a-kodak/?utm_source=newsletter&utm_medium=newsletter&utm_campaign=senal_abierta)** — El Club del Negocio · 2026-09-30
+- **[Resume PDFs de 100 páginas en segundos con Google](https://senalabierta.pages.dev/v/resume-pdfs-de-100-paginas-en-segundos-con-google/?utm_source=newsletter&utm_medium=newsletter&utm_campaign=senal_abierta)** — IA en 60 segundos · 2026-09-30
 - **[Walmart: la historia COMPLETA de Sam Walton (de dependiente a $500B)](https://senalabierta.pages.dev/v/walmart-la-historia-completa-de-sam-walton-de-dependiente-a-500b/?utm_source=newsletter&utm_medium=newsletter&utm_campaign=senal_abierta)** — El Club del Negocio · 2026-09-27
 - **[Netflix: El Error que lo Hizo Millonario](https://senalabierta.pages.dev/v/netflix-el-error-que-lo-hizo-millonario/?utm_source=newsletter&utm_medium=newsletter&utm_campaign=senal_abierta)** — El Club del Negocio · 2026-09-27
 - **[Google: el dato de dinero que nadie te contó 🤯](https://senalabierta.pages.dev/v/google-el-dato-de-dinero-que-nadie-te-conto/?utm_source=newsletter&utm_medium=newsletter&utm_campaign=senal_abierta)** — El Club del Negocio · 2026-09-26

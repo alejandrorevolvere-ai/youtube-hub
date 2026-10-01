@@ -8,9 +8,9 @@ identificable y las URLs queden diferenciadas.
 
 > Nota: YouTube Analytics mide el tráfico externo por el dominio de referencia
 > (ya activo: `strict-origin-when-cross-origin`). Los UTM identifican cada
-> enlace de forma única; el hub tiene Cloudflare Web Analytics (sin cookies),
-> donde los UTM de entrada quedan recolectados para ver el tráfico inverso
-> (Google → hub → YouTube).
+> enlace de forma única; el tráfico inverso (Google → hub → YouTube) se ve en
+> YouTube Analytics → Alcance → Fuentes de tráfico → Externo. Panel de visitas
+> del hub: pendiente (dashboard de Cloudflare o contador propio, ver A11).
 
 ---
 
@@ -130,3 +130,56 @@ https://senalabierta.pages.dev/?utm_source=newsletter&utm_medium=email&utm_campa
 - [ ] Compartir la sección `#senal` del hub al salir un vídeo nuevo
 - [ ] Revisar en YouTube Analytics → Alcance → Fuentes de tráfico → Externo
       (debería aparecer `senalabierta.pages.dev` como fuente)
+
+---
+
+## 8. Ko-fi (perfil, página de apoyo y agradecimiento)
+
+**URL de apoyo (UTM):** `https://ko-fi.com/alejandrorevolvere?utm_source=senalabierta&utm_medium=kofi&utm_campaign=senal_abierta`
+
+**Bio del perfil / "About":**
+```
+Creador de El Club del Negocio e IA en 60 segundos. Aquí puedes invitarme
+a un café para que los vídeos sigan saliendo sin patrocinios que
+contaminen la señal ☕
+```
+
+**Mensaje fijado en la página (lo que ve antes de donar):**
+```
+Cada café sostiene una investigación, un guion y un vídeo nuevo.
+Si prefieres algo a cambio: el archivo completo es gratis en
+https://senalabierta.pages.dev/ — el café es solo para acelerar el próximo.
+```
+
+**Respuesta automática / agradecimiento tras cada apoyo:**
+```
+¡Gracias! ☕ Con esto se paga el tiempo de investigación de los próximos
+vídeos. Si te sirvió, comparte el archivo con alguien a quien le sirva:
+https://senalabierta.pages.dev/?utm_source=kofi&utm_medium=thankyou&utm_campaign=senal_abierta
+```
+
+---
+
+## 9. Respuestas a comentarios (copiar y pegar)
+
+**Cuando preguntan "¿de dónde sale esto?" / piden fuentes:**
+```
+Fuentes en la descripción del vídeo y en el archivo ordenado:
+https://senalabierta.pages.dev/?utm_source=youtube&utm_medium=reply&utm_campaign=senal_abierta
+```
+
+**Cuando piden "¿qué libro / qué herramienta es?":**
+```
+Está en la ficha del vídeo con el enlace directo (y en /libros/):
+https://senalabierta.pages.dev/libros/?utm_source=youtube&utm_medium=reply&utm_campaign=senal_abierta
+```
+*(si el vídeo tiene libro: usa el enlace Amazon de la tabla §1 con
+`utm_medium=reply` y añade la divulgación:
+"Como Afiliado de Amazon, percibo dinero con las compras que cumplen los
+requisitos.")*
+
+**Cuando piden "¿dónde está todo el canal?":**
+```
+Todo el archivo, filtrado por canal:
+https://senalabierta.pages.dev/?utm_source=youtube&utm_medium=reply&utm_campaign=senal_abierta
+```

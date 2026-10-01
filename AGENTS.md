@@ -34,14 +34,17 @@ CONTEXTO
 1. ANTES de Fase 1, añadir el id del video en `<hub>\data\libros.json`
    (array `videos` del libro correspondiente; si no existe, crear la entrada
    con asin/title/empresa — confirmar ASIN con Alejandro antes de publicar).
-2. Reconstruir el sitio:
+2. Reconstruir el sitio (atajo: todo el bloque de abajo en un solo paso con
+   `powershell -ExecutionPolicy Bypass -File deploy.ps1`, que además notifica
+   a IndexNow al final):
    ```
    python scripts\fetch_channel_data.py
    python scripts\build_pages.py
    python scripts\csp_hashes.py
-   python scripts\smoke_site.py     # debe decir ALL OK (42 checks)
+   python scripts\smoke_site.py     # debe decir ALL OK
    python scripts\package_site.py
    npx wrangler pages deploy dist --project-name senalabierta --branch=main --commit-dirty=true
+   python scripts\indexnow_ping.py  # (deploy.ps1 lo incluye)
    ```
 3. Verificar en vivo: la landing del video contiene su ASIN y
    `rel="sponsored"`; `/libros/` cuenta sus fichas.

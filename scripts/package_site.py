@@ -32,7 +32,12 @@ FILES = [
     "llms.txt",
     "_headers",
 ]
-DIRS = ["fonts", "v", "archivo", "libros", "img"]
+# Clave IndexNow: un fichero <key>.txt en la raiz (publico por diseno,
+# lo busca y notifica scripts/indexnow_ping.py tras cada deploy).
+for _p in ROOT.glob("*.txt"):
+    if _p.name not in ("robots.txt", "llms.txt"):
+        FILES.append(_p.name)
+DIRS = ["fonts", "v", "archivo", "libros", "img", "legal"]
 
 
 def main() -> int:

@@ -246,6 +246,8 @@ section{scroll-margin-top:104px}
 .lp-cta{display:flex;align-items:center;gap:28px;flex-wrap:wrap;margin-top:26px;padding-bottom:34px;border-bottom:1px solid var(--line)}
 .lp-body{margin-top:34px}
 .lp-body p{max-width:720px;color:#c9c7bd;font-size:15px;line-height:1.85;margin:0 0 20px}
+.lp-body h2{font:600 22px/1.25 var(--display);letter-spacing:-.03em;color:var(--paper);margin:36px 0 14px}
+.lp-body strong{color:var(--paper)}
 .lp-tags{font:400 10px var(--mono);letter-spacing:.08em;color:var(--muted);text-transform:uppercase;margin-top:26px}
 .lp-related{margin-top:80px;border-top:1px solid var(--line);padding-top:56px}
 .lp-related .section-head{margin-bottom:34px}

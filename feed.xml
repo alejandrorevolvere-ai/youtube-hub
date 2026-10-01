@@ -5,7 +5,39 @@
   <link href="https://senalabierta.pages.dev/" />
   <link rel="self" href="https://senalabierta.pages.dev/feed.xml" />
   <id>https://senalabierta.pages.dev/</id>
-  <updated>2026-09-27T00:00:00Z</updated>
+  <updated>2026-10-01T00:00:00Z</updated>
+  <entry>
+    <title>La regla 50/30/20 para ahorrar</title>
+    <link href="https://senalabierta.pages.dev/v/la-regla-50-30-20-para-ahorrar/" />
+    <id>https://senalabierta.pages.dev/v/la-regla-50-30-20-para-ahorrar/</id>
+    <updated>2026-10-01T00:00:00Z</updated>
+    <author><name>El Club del Negocio</name></author>
+    <summary>¿Sientes que el dinero se te escapa nada más cobrar? La regla del 50/30/20 te ayuda a que el dinero te alcance cada mes: 50% en necesidades, 30% en deseos…</summary>
+  </entry>
+  <entry>
+    <title>La ONU advierte sobre la IA</title>
+    <link href="https://senalabierta.pages.dev/v/la-onu-advierte-sobre-la-ia/" />
+    <id>https://senalabierta.pages.dev/v/la-onu-advierte-sobre-la-ia/</id>
+    <updated>2026-10-01T00:00:00Z</updated>
+    <author><name>IA en 60&quot;</name></author>
+    <summary>📰 La ONU pide acciones urgentes para regular la IA. **Lo que tienes que saber:** • Volker Turk (Derechos Humanos, ONU) avisa de riesgos sin precedentes:…</summary>
+  </entry>
+  <entry>
+    <title>El invento que destruyó a Kodak</title>
+    <link href="https://senalabierta.pages.dev/v/el-invento-que-destruyo-a-kodak/" />
+    <id>https://senalabierta.pages.dev/v/el-invento-que-destruyo-a-kodak/</id>
+    <updated>2026-09-30T00:00:00Z</updated>
+    <author><name>El Club del Negocio</name></author>
+    <summary>Esta es la historia de cómo Kodak inventó la cámara digital en 1975 y decidió ocultarla para proteger su negocio de carretes de película. Una decisión que…</summary>
+  </entry>
+  <entry>
+    <title>Resume PDFs de 100 páginas en segundos con Google</title>
+    <link href="https://senalabierta.pages.dev/v/resume-pdfs-de-100-paginas-en-segundos-con-google/" />
+    <id>https://senalabierta.pages.dev/v/resume-pdfs-de-100-paginas-en-segundos-con-google/</id>
+    <updated>2026-09-30T00:00:00Z</updated>
+    <author><name>IA en 60&quot;</name></author>
+    <summary>🤖 NotebookLM (Google): cómo usarlo en 5 pasos. **Para qué sirve:** • Analiza PDFs de cien paginas en segundos, con citas verificables. • Estudia o trabaja…</summary>
+  </entry>
   <entry>
     <title>Walmart: la historia COMPLETA de Sam Walton (de dependiente a $500B)</title>
     <link href="https://senalabierta.pages.dev/v/walmart-la-historia-completa-de-sam-walton-de-dependiente-a-500b/" />
@@ -93,37 +125,5 @@
     <updated>2026-09-25T00:00:00Z</updated>
     <author><name>El Club del Negocio</name></author>
     <summary>La historia de Spotify y la lección financiera que puedes aplicar HOY. Suscríbete a El Club del Negocio.</summary>
-  </entry>
-  <entry>
-    <title>Crea videos épicos con una foto 🎬</title>
-    <link href="https://senalabierta.pages.dev/v/crea-videos-epicos-con-una-foto/" />
-    <id>https://senalabierta.pages.dev/v/crea-videos-epicos-con-una-foto/</id>
-    <updated>2026-09-25T00:00:00Z</updated>
-    <author><name>IA en 60&quot;</name></author>
-    <summary>Aprende a usar Runway para animar fotos fijas y lograr resultados profesionales. 🔧 HERRAMIENTA: Runway (runwayml.com) 📋 PASOS: Sube tu foto fija →…</summary>
-  </entry>
-  <entry>
-    <title>Ahorra 3 horas de trabajo hoy ⚡</title>
-    <link href="https://senalabierta.pages.dev/v/ahorra-3-horas-de-trabajo-hoy/" />
-    <id>https://senalabierta.pages.dev/v/ahorra-3-horas-de-trabajo-hoy/</id>
-    <updated>2026-09-25T00:00:00Z</updated>
-    <author><name>IA en 60&quot;</name></author>
-    <summary>Aprende a usar ChatGPT para automatizar tareas repetitivas y ahorrar tres horas diarias en tu trabajo con este método rápido. 🔧 HERRAMIENTA: ChatGPT…</summary>
-  </entry>
-  <entry>
-    <title>HeyGen crea tu clon IA idéntico en 60 segundos 🗣️</title>
-    <link href="https://senalabierta.pages.dev/v/heygen-crea-tu-clon-ia-identico-en-60-segundos/" />
-    <id>https://senalabierta.pages.dev/v/heygen-crea-tu-clon-ia-identico-en-60-segundos/</id>
-    <updated>2026-09-25T00:00:00Z</updated>
-    <author><name>IA en 60&quot;</name></author>
-    <summary>Descubre cómo clonar tu rostro y voz con HeyGen para crear videos automáticos sin ponerte frente a la cámara. 🔧 HERRAMIENTA: HeyGen (Prueba gratuita con…</summary>
-  </entry>
-  <entry>
-    <title>Foto PROFESIONAL con IA (sin fotografo) 🎵</title>
-    <link href="https://senalabierta.pages.dev/v/foto-profesional-con-ia-sin-fotografo/" />
-    <id>https://senalabierta.pages.dev/v/foto-profesional-con-ia-sin-fotografo/</id>
-    <updated>2026-09-25T00:00:00Z</updated>
-    <author><name>IA en 60&quot;</name></author>
-    <summary>Demo: foto profesional con IA desde selfies. 🔧 HERRAMIENTA: (gratis) 📋 PASOS: 💡 Enlace y prompt completo en el primer comentario fijado. ¡Suscríbete a IA…</summary>
   </entry>
 </feed>
