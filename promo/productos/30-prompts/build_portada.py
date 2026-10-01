@@ -30,7 +30,7 @@ def font(name, size):
 
 f_brand = font("segoeuib.ttf", 30)
 f_url = font("segoeui.ttf", 24)
-f_h1 = font("segoeuib.ttf", 96)
+f_h1 = font("segoeuib.ttf", 88)
 f_h2 = font("segoeuib.ttf", 74)
 f_badge = font("segoeuib.ttf", 26)
 f_mono = font("consola.ttf", 22)
@@ -41,7 +41,13 @@ f_foot = font("segoeui.ttf", 24)
 def base_layer():
     """Fondo: imagen IA (fondo-ia.png) con scrim, o color plano."""
     if FONDO_IA.exists():
-        fondo = Image.open(FONDO_IA).convert("RGB").resize((W, H), Image.LANCZOS)
+        src = Image.open(FONDO_IA).convert("RGB")
+        scale = max(W / src.width, H / src.height)
+        src = src.resize((round(src.width * scale), round(src.height * scale)),
+                         Image.LANCZOS)
+        left = (src.width - W) // 2
+        top = (src.height - H) // 2
+        fondo = src.crop((left, top, left + W, top + H))
         scrim = Image.new("RGB", (W, H), INK)
         mask = Image.new("L", (W, H), 0)
         md = ImageDraw.Draw(mask)
@@ -61,7 +67,7 @@ def main():
     d = ImageDraw.Draw(img)
 
     d.rectangle([0, 0, W, 14], fill=AMBER)
-    d.rectangle([0, H - 60, W, H], fill=INK2)
+    d.rectangle([0, H - 92, W, H], fill=INK2)
 
     d.text((60, 54), "SEÑAL ABIERTA", font=f_brand, fill=AMBER)
     url = "senalabierta.pages.dev"
@@ -93,17 +99,16 @@ def main():
     for b in badges:
         bw = d.textlength(b, font=f_badge) + 44
         d.rounded_rectangle([x, by, x + bw, by + 54], radius=27,
-                            outline=AMBER, width=3)
+                            fill=INK, outline=AMBER, width=3)
         d.text((x + 22, by + 11), b, font=f_badge, fill=AMBER)
         by += 76
         if x + bw > W - 100:
             x, by = 810, by
 
-    d.text((810, by + 18), "ChatGPT · Notion IA · Perplexity", font=f_foot, fill=GRAY)
-    d.text((810, by + 54), "Midjourney · Ideogram · Gamma", font=f_foot, fill=GRAY)
-
-    d.text((60, H - 46), "Cada prompt enlaza a su vídeo original  ·  Edición 1 · 2026",
-           font=f_foot, fill=GRAY)
+    tools = "ChatGPT · Notion IA · Perplexity · Midjourney · Ideogram · Gamma"
+    d.text((60, H - 78), tools, font=f_foot, fill=GRAY)
+    d.text((60, H - 44), "Cada prompt enlaza a su vídeo original  ·  "
+                         "Edición 1 · 2026", font=f_foot, fill=GRAY)
 
     img.save(OUT, "PNG")
     print(f"PNG: {OUT} ({W}x{H})")
