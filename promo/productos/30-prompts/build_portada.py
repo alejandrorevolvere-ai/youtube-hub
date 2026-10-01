@@ -1,5 +1,9 @@
 # -*- coding: utf-8 -*-
-"""Genera portada-kofi.png (imagen del producto para el Ko-fi Shop)."""
+"""Genera portada-kofi.png (imagen del producto para el Ko-fi Shop).
+
+Diseño minimalista: héroe IA (fondo-ia.png) + mensaje corto.
+Tipografía: Bahnschrift (variable, estilo DIN) + Segoe UI Light.
+"""
 from pathlib import Path
 import sys
 
@@ -13,29 +17,26 @@ FONDO_IA = HERE / "fondo-ia.png"
 
 W, H = 1200, 900
 INK = (15, 23, 42)
-INK2 = (30, 41, 59)
 AMBER = (245, 158, 11)
-AMBER_DARK = (217, 119, 6)
 WHITE = (255, 255, 255)
 GRAY = (148, 163, 184)
-LIGHT = (241, 245, 249)
-DARKTXT = (30, 41, 59)
+SOFT = (226, 232, 240)
 
 F = "C:/Windows/Fonts/"
 
 
-def font(name, size):
-    return ImageFont.truetype(F + name, size)
+def font(name, size, bold=False):
+    f = ImageFont.truetype(F + name, size)
+    if bold:
+        f.set_variation_by_name("Bold")
+    return f
 
 
-f_brand = font("segoeuib.ttf", 30)
-f_url = font("segoeui.ttf", 24)
-f_h1 = font("segoeuib.ttf", 88)
-f_h2 = font("segoeuib.ttf", 74)
-f_badge = font("segoeuib.ttf", 26)
-f_mono = font("consola.ttf", 22)
-f_mono_sm = font("consola.ttf", 19)
-f_foot = font("segoeui.ttf", 24)
+def tracked(d, x, y, text, f, fill, tracking=0):
+    for ch in text:
+        d.text((x, y), ch, font=f, fill=fill)
+        x += d.textlength(ch, font=f) + tracking
+    return x
 
 
 def base_layer():
@@ -66,52 +67,27 @@ def main():
     img = base_layer()
     d = ImageDraw.Draw(img)
 
-    d.rectangle([0, 0, W, 14], fill=AMBER)
-    d.rectangle([0, H - 92, W, H], fill=INK2)
+    f_brand = font("bahnschrift.ttf", 30, bold=True)
+    f_url = font("segoeuil.ttf", 24)
+    f_h1 = font("bahnschrift.ttf", 96, bold=True)
+    f_h2 = font("bahnschrift.ttf", 54)
 
-    d.text((60, 54), "SEÑAL ABIERTA", font=f_brand, fill=AMBER)
+    d.rectangle([0, 0, W, 8], fill=AMBER)
+
+    tracked(d, 60, 50, "SEÑAL ABIERTA", f_brand, AMBER, tracking=5)
     url = "senalabierta.pages.dev"
     uw = d.textlength(url, font=f_url)
-    d.text((W - 60 - uw, 60), url, font=f_url, fill=GRAY)
+    d.text((W - 60 - uw, 52), url, font=f_url, fill=GRAY)
 
-    d.text((60, 130), "30 prompts de IA", font=f_h1, fill=WHITE)
-    d.text((60, 240), "para trabajar el doble", font=f_h2, fill=AMBER)
-    d.text((60, 332), "en la mitad de tiempo", font=f_h2, fill=WHITE)
+    d.text((60, 296), "30 prompts de IA", font=f_h1, fill=WHITE)
+    d.text((60, 432), "para trabajar el doble", font=f_h2, fill=AMBER)
+    d.text((60, 500), "en la mitad de tiempo", font=f_h2, fill=SOFT)
 
-    card = [60, 470, 760, 760]
-    d.rounded_rectangle(card, radius=18, fill=LIGHT)
-    d.rectangle([60, 470, 70, 760], fill=AMBER_DARK)
-    d.text((96, 494), "PROMPT 01 · CHATGPT", font=f_mono_sm, fill=(100, 116, 139))
-    lines = [
-        "Actúa como mi chief of staff.",
-        "Metas: [METAS]. Disponibilidad:",
-        "[HORAS LIBRES]. Plan día por día",
-        "en bloques de 90 min.",
-    ]
-    y = 540
-    for ln in lines:
-        d.text((96, y), ln, font=f_mono, fill=DARKTXT)
-        y += 42
-    d.text((96, y + 10), "→ tabla | día | bloque | tarea |", font=f_mono, fill=(217, 119, 6))
-
-    badges = ["30 prompts", "9 bloques", "3 recetas bonus", "+ PDF 14 pág."]
-    x, by = 810, 480
-    for b in badges:
-        bw = d.textlength(b, font=f_badge) + 44
-        d.rounded_rectangle([x, by, x + bw, by + 54], radius=27,
-                            fill=INK, outline=AMBER, width=3)
-        d.text((x + 22, by + 11), b, font=f_badge, fill=AMBER)
-        by += 76
-        if x + bw > W - 100:
-            x, by = 810, by
-
-    tools = "ChatGPT · Notion IA · Perplexity · Midjourney · Ideogram · Gamma"
-    d.text((60, H - 78), tools, font=f_foot, fill=GRAY)
-    d.text((60, H - 44), "Cada prompt enlaza a su vídeo original  ·  "
-                         "Edición 1 · 2026", font=f_foot, fill=GRAY)
+    d.rectangle([60, 596, 180, 600], fill=AMBER)
 
     img.save(OUT, "PNG")
-    print(f"PNG: {OUT} ({W}x{H})")
+    w1 = d.textlength("30 prompts de IA", font=f_h1)
+    print(f"PNG: {OUT} ({W}x{H}) h1_width={w1:.0f}")
 
 
 if __name__ == "__main__":
