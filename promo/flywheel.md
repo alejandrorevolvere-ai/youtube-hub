@@ -36,7 +36,8 @@ El loop: **vídeo nuevo → descripción con CTA → hub → newsletter → libr
 
 ## Ko-fi
 
-- [ ] Intro del perfil y 3 enlaces (hub, canal, newsletter)
+- [ ] Intro del perfil y 3 enlaces (hub, canal, newsletter) +
+      avatar/categorías/tiers → copy listo en `promo/kofi.md`
 - [x] Hecho: enlace en footer del hub + en las 94 descripciones
 - [x] Webhook activo: `https://senalabierta.pages.dev/api/kofi` en
       Ko-fi → Webhooks (verificado 2026-10-01: 2 tests recibidos y
