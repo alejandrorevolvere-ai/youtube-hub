@@ -36,7 +36,7 @@ El loop: **vídeo nuevo → descripción con CTA → hub → newsletter → libr
 
 ## Ko-fi
 
-- [ ] Intro del perfil y 3 enlaces (hub, canal, newsletter) +
+- [ ] Intro del perfil, enlaces (tienda/hub/canal/newsletter) +
       avatar/categorías/tiers → copy listo en `promo/kofi.md`
 - [x] Hecho: enlace en footer del hub + en las 94 descripciones
 - [x] Webhook activo: `https://senalabierta.pages.dev/api/kofi` en
@@ -48,6 +48,9 @@ El loop: **vídeo nuevo → descripción con CTA → hub → newsletter → libr
 - [x] `GET /api/kofi?limit=N` en vivo (lista de pagos para dashboard/n8n)
 - [x] Workflow n8n `senalabierta-kofi-pagos` importado y activado
       (poll cada 3 h; requiere `n8n start` en el PC; guía `promo/n8n.md`)
+- [ ] Promoción del pack (copy listo → `promo/promo.md`): banner 2 vínculos,
+      comentario fijado variante producto en Tip #50, mención en digest,
+      bio con link de tienda
 
 ## Medición (cada lunes)
 

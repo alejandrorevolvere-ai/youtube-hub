@@ -16,9 +16,10 @@ Este fichero tiene todo listo para pegar.
 - **Categorías**: ahora pone "Animation Software Writing Video and Film Money"
   (categorías por defecto) → cámbialas por **Business, Technology, Education**.
 - **Tus 3 enlaces** (botón de enlaces del perfil):
-  1. Hub: `https://senalabierta.pages.dev/?utm_source=kofi&utm_medium=profile&utm_campaign=senal_abierta`
-  2. Canal: `https://www.youtube.com/@historiasdenegocios-o5m`
-  3. Newsletter: `https://buttondown.com/revolvere`
+  1. Tienda: `https://ko-fi.com/s/c7fd921388`
+  2. Hub: `https://senalabierta.pages.dev/?utm_source=kofi&utm_medium=profile&utm_campaign=senal_abierta`
+  3. Canal: `https://www.youtube.com/@historiasdenegocios-o5m`
+  4. Newsletter: `https://buttondown.com/revolvere`
 - **Bio (opcional, versión con CTA)**:
 
   > Historias de negocios e IA, sin ruido. Cada semana, vídeos nuevos y el
@@ -40,7 +41,9 @@ Ingreso recurrente. Ko-fi cobra 5% (tips: 0%). Precios pensados para ES:
 Reglas: si activas tiers, publica **1 post/mes mínimo** en el feed de Ko-fi
 (exclusivo para socios) — es lo que retiene la membresía.
 
-## 3. Shop — producto 1 listo para subir
+## 3. Shop — producto 1 PUBLICADO ✅
+
+**PUBLICADO (2026-10-02): https://ko-fi.com/s/c7fd921388**
 
 **Generado (2026-10-01):** `promo/productos/30-prompts/30-prompts-senal-abierta.pdf`
 (14 páginas · 30 prompts reales de los tips del canal + 3 recetas bonus).
@@ -72,10 +75,13 @@ historias de negocios (7 €).
 
 ## 4. Dónde promocionar (lo que de verdad trae los primeros euros)
 
-- [ ] **Banner de ambos canales** → enlace Ko-fi con UTM
-      (`promo.md` § links: `utm_medium=banner`).
-- [ ] **Comentario fijado** en los últimos 3-5 vídeos (plantilla `promo.md` §4).
-- [ ] Bio de **X / TikTok / Instagram / Threads** (§5).
+- [ ] **Banner de ambos canales** → 2 vínculos: hub + pack
+      (`promo.md` §1: `utm_medium=banner`).
+- [ ] **Comentario fijado** en los últimos 3-5 vídeos — variante producto en
+      el **Tip #50** (vídeo preview del pack) (`promo.md` §4).
+- [ ] Bio de **X / TikTok / Instagram / Threads** (§5) — opcional: 2º link
+      al pack (`promo.md` §1, fila bio pack30).
+- [ ] **Mención del pack en la próxima newsletter/digest** (`promo.md` §6).
 - [ ] Ya activo sin hacer nada: enlace en las **98 descripciones**,
       footers del hub/landings/libros y en la newsletter.
 - [ ] Mención verbal: "si os sirvió, invítame a un café" en los

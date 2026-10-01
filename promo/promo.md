@@ -29,6 +29,9 @@ identificable y las URLs queden diferenciadas.
 | Pie de landings (newsletter) | `https://buttondown.com/revolvere?utm_source=senalabierta&utm_medium=newsletter&utm_campaign=landing` |
 | CTA hub (botón newsletter) | `https://buttondown.com/revolvere?utm_source=senalabierta&utm_medium=newsletter&utm_campaign=hub` |
 | Ko-fi (footer/descripciones) | `https://ko-fi.com/alejandrorevolvere?utm_source=senalabierta&utm_medium=kofi&utm_campaign=senal_abierta` |
+| **Tienda · pack 30 prompts (comentario fijado)** | `https://ko-fi.com/s/c7fd921388?utm_source=youtube&utm_medium=pinned_comment&utm_campaign=pack30` |
+| **Tienda · pack 30 prompts (newsletter)** | `https://ko-fi.com/s/c7fd921388?utm_source=newsletter&utm_medium=email&utm_campaign=pack30` |
+| **Tienda · pack 30 prompts (bio — varía `utm_source` por red)** | `https://ko-fi.com/s/c7fd921388?utm_source=x&utm_medium=bio&utm_campaign=pack30` |
 | Libros (`/libros/` y descripciones) | `https://www.amazon.es/dp/{ASIN}?tag=senalabierta-21&utm_source=senalabierta&utm_medium=affiliate&utm_campaign=libros` |
 | Firma de foro / Discord | `https://senalabierta.pages.dev/?utm_source=foro&utm_medium=firma&utm_campaign=senal_abierta` |
 | Firma de email | `https://senalabierta.pages.dev/?utm_source=email&utm_medium=firma&utm_campaign=senal_abierta` |
@@ -64,6 +67,17 @@ Suscríbete 🔔
 https://senalabierta.pages.dev/?utm_source=youtube&utm_medium=pinned_comment&utm_campaign=senal_abierta
 
 ¿De qué tema quieres el próximo vídeo? Déjalo en un comentario 👇
+```
+
+**Variante producto** (para el vídeo preview del pack — Tip #50 — y los
+últimos 3-5 vídeos):
+
+```
+👉 Los prompts exactos de este vídeo, 30 en total, están en el pack (PDF de
+14 páginas, pago lo que quieras desde 5 $):
+https://ko-fi.com/s/c7fd921388?utm_source=youtube&utm_medium=pinned_comment&utm_campaign=pack30
+
+¿De qué tema quieres el próximo vídeo? Déjalo abajo 👇
 ```
 
 ---
@@ -114,6 +128,15 @@ Vídeos breves, sin humo. Aquí está todo el archivo ordenado:
 https://senalabierta.pages.dev/?utm_source=newsletter&utm_medium=email&utm_campaign=senal_abierta
 ```
 
+**Pack "30 prompts de IA" (producto — para newsletter / Discord):**
+```
+He publicado el pack "30 prompts de IA para trabajar el doble en la mitad
+de tiempo": PDF de 14 páginas con prompts listos para copiar (presentaciones,
+email, investigación, código...) + 3 recetas completas paso a paso.
+Pago lo que quieras, desde 5 $:
+https://ko-fi.com/s/c7fd921388?utm_source=newsletter&utm_medium=email&utm_campaign=pack30
+```
+
 ---
 
 ## 7. Checklist de promoción
@@ -128,6 +151,11 @@ https://senalabierta.pages.dev/?utm_source=newsletter&utm_medium=email&utm_campa
 - [ ] Bio + link en X, TikTok, Instagram y Threads (sección 5)
 - [ ] Firma en Discord/foros habituales (sección 6)
 - [ ] Compartir la sección `#senal` del hub al salir un vídeo nuevo
+- [ ] **Pack 30 prompts**: comentario fijado variante producto en el Tip #50
+      (vídeo preview) y en los últimos 3-5 vídeos (§4)
+- [ ] **Pack 30 prompts**: mención en la próxima newsletter/digest (§6)
+- [ ] **Pack 30 prompts**: segundo vínculo en los Links del banner de ambos
+      canales → `https://ko-fi.com/s/c7fd921388?utm_source=youtube&utm_medium=banner&utm_campaign=pack30`
 - [ ] Revisar en YouTube Analytics → Alcance → Fuentes de tráfico → Externo
       (debería aparecer `senalabierta.pages.dev` como fuente)
 
@@ -147,8 +175,9 @@ contaminen la señal ☕
 **Mensaje fijado en la página (lo que ve antes de donar):**
 ```
 Cada café sostiene una investigación, un guion y un vídeo nuevo.
-Si prefieres algo a cambio: el archivo completo es gratis en
-https://senalabierta.pages.dev/ — el café es solo para acelerar el próximo.
+¿Prefieres algo a cambio? El pack "30 prompts de IA" (PDF de 14 páginas,
+pago desde 5 $) está aquí: https://ko-fi.com/s/c7fd921388
+Y el archivo completo del canal es gratis en https://senalabierta.pages.dev/
 ```
 
 **Respuesta automática / agradecimiento tras cada apoyo:**
@@ -182,4 +211,11 @@ requisitos.")*
 ```
 Todo el archivo, filtrado por canal:
 https://senalabierta.pages.dev/?utm_source=youtube&utm_medium=reply&utm_campaign=senal_abierta
+```
+
+**Cuando preguntan "¿me pasas los prompts / qué prompts usas?":**
+```
+Los 30 prompts que uso (y 3 recetas completas) están en el pack, PDF de
+14 páginas, pago lo que quieras desde 5 $:
+https://ko-fi.com/s/c7fd921388?utm_source=youtube&utm_medium=reply&utm_campaign=pack30
 ```
