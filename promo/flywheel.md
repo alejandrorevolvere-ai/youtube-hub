@@ -37,10 +37,15 @@ El loop: **vídeo nuevo → descripción con CTA → hub → newsletter → libr
 ## Ko-fi
 
 - [ ] Intro del perfil y 3 enlaces (hub, canal, newsletter)
-- [ ] Hecho: enlace en footer del hub + en las 94 descripciones
+- [x] Hecho: enlace en footer del hub + en las 94 descripciones
+- [ ] Webhook activo: `https://senalabierta.pages.dev/api/kofi` en
+      Ko-fi → Webhooks → Send a test (token en env-var `KOFI_TOKEN`,
+      pagos en KV con prefijo `kofi:`)
 
 ## Medición (cada lunes)
 
+- [x] **Tablero unico**: `python scripts/monetization.py` → visitas,
+      suscriptores, aperturas, donaciones Ko-fi y smoke en un solo comando
 - [ ] Visitas del hub: `GET https://senalabierta.pages.dev/api/stats`
       (contador propio: total, últimos 30 días y rutas top)
 - [ ] YouTube Analytics → Alcance → Fuentes externas: `senalabierta.pages.dev`

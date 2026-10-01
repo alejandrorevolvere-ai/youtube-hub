@@ -61,11 +61,24 @@ requisitos."
 
 ## Fase 4 — Newsletter semanal (los lunes)
 
-1. `python scripts\newsletter_draft.py` → revisa `<hub>\promo\digest-AAAA-WW.md`
-2. `python scripts\newsletter_draft.py --apply` → crea DRAFT en Buttondown.
-3. PROHIBIDO enviar/publicar: solo borrador. Alejandro lo revisa y publica
-   a mano. La clave está en `<hub>\.env` (`BUTTONDOWN_API_KEY`): no la
-   imprimas, no la guardes en otro sitio, no la commitees.
+1. `python scripts/newsletter_draft.py` → revisa `<hub>\promo\digest-AAAA-WW.md`
+2. `python scripts/newsletter_draft.py --apply` → crea DRAFT en Buttondown.
+3. ENVIAR AUTORIZADO por API (autorizacion de Alejandro, 2026-10-01, W40):
+   tras `--apply`, hacer `PATCH /v1/emails/{id}` con
+   `{"status": "about_to_send"}` → estado `sent`. No hace falta su revision
+   previa; el digest queda en `promo/` por si quiere verlo.
+4. Tablero unico: `python scripts/monetization.py` (visitas, suscriptores,
+   aperturas, donaciones Ko-fi, smoke).
+5. La clave está en `<hub>\.env` (`BUTTONDOWN_API_KEY`): no la imprimas,
+   no la guardes en otro sitio, no la commitees.
+
+## Webhook de Ko-fi (donaciones)
+
+- Endpoint: `functions/api/kofi.js` (POST `/api/kofi`). Valida
+  `verification_token` contra la env-var del proyecto Pages `KOFI_TOKEN`
+  (configurada via API en `deployment_configs`; NUNCA en git), registra cada
+  pago en KV con prefijo `kofi:` y responde 200. URL en Ko-fi → Webhooks:
+  `https://senalabierta.pages.dev/api/kofi`.
 
 ## Límites inquebrantables
 
