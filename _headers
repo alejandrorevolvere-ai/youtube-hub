@@ -4,4 +4,6 @@
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: camera=(), microphone=(), geolocation=()
   Strict-Transport-Security: max-age=31536000; includeSubDomains
+  Cross-Origin-Opener-Policy: same-origin
+  Cross-Origin-Resource-Policy: same-origin
   Content-Security-Policy: default-src 'none'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'; object-src 'none'; script-src 'self' 'sha256-/x7W7R75k8Roq0WaVRQX9blP4OufE5xbAdzklGxsgpw=' 'sha256-6jk+rboKOuL3ROscMzUgAIWWrSFKm+zUuFZgu9F1Cbo=' 'sha256-pOQVv0min20yGKL1Pc3kV1T1PtYadkkUoVwWJ+7Fqag=' 'sha256-32wipfJCRAMG5XcRLGHEvV7lqbJeQei5B6IimYppDWI=' https://static.cloudflareanalytics.com; style-src 'self'; img-src 'self' data: https://i.ytimg.com; font-src 'self'; connect-src 'self' https://static.cloudflareanalytics.com; frame-src https://www.youtube-nocookie.com; media-src 'none'; worker-src 'none'; manifest-src 'none'; upgrade-insecure-requests
