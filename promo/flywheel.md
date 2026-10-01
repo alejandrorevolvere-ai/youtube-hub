@@ -5,9 +5,11 @@ El loop: **vídeo nuevo → descripción con CTA → hub → newsletter → libr
 
 ## Cada lunes (≈15 min)
 
-- [ ] `python scripts/newsletter_draft.py` → revisar `promo/digest-AAAA-WW.md`
-- [ ] `python scripts/newsletter_draft.py --apply` → enviar desde Buttondown
-      (Revisar → Send draft primero con tu correo)
+- [x] `python scripts/newsletter_draft.py` → revisar `promo/digest-AAAA-WW.md`
+      (W40: 22 estrenos, 01/10/2026)
+- [x] `python scripts/newsletter_draft.py --apply` → enviar desde Buttondown
+      (W40 enviado por API: draft `em_08b5ajxeer8jg83yq2c4hb9ct8` → status
+      `sent`; 0 suscriptores, ver archivo público del botón)
 - [ ] Comentario fijado en el vídeo nuevo (`promo.md` §4)
 - [ ] Compartir el vídeo + hub en X/TikTok con UTM (`promo.md` §1)
 
@@ -48,7 +50,7 @@ El loop: **vídeo nuevo → descripción con CTA → hub → newsletter → libr
 
 ## Infra (una vez)
 
-- [ ] `.env` con `BUTTONDOWN_API_KEY` (plantilla en `.env.example`)
+- [x] `.env` con `BUTTONDOWN_API_KEY` (plantilla en `.env.example`)
 - [ ] Cobro: PayPal (o Stripe) conectado en Ko-fi → Payment Settings;
       Amazon/NordVPN/ElevenLabs pagan por su propio canal (IBAN o PayPal
       configurado en cada plataforma, no se conecta al hub)
