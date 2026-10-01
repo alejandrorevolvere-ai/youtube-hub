@@ -74,6 +74,12 @@ n_beacon = sum(1 for _, t in files if "count.js" in t)
 chk(n_beacon == len(files),
     f"count.js en {n_beacon}/{len(files)} landings")
 
+# tienda Ko-fi visible en todas las landings
+n_shop = sum(1 for _, t in files if "ko-fi.com/s/c7fd921388" in t)
+chk(n_shop == len(files),
+    f"tienda Ko-fi en {n_shop}/{len(files)} landings")
+chk("ko-fi.com/s/c7fd921388" in arch, "archivo enlaza tienda Ko-fi")
+
 lp2 = sorted((root / "v").glob("*/index.html"))[10]
 l2 = lp2.read_text(encoding="utf-8")
 chk("lp-aff" in l2, f"bloque afiliados en {lp2.parent.name} (otro canal)")
@@ -90,6 +96,7 @@ chk(nhit == 8, f"{nhit} imagenes de hitos referenciadas")
 chk("05 / La pr" in h, "watch renumerado 05")
 chk("04 / L" in h, "hitos numerado 04")
 chk("ko-fi.com/alejandrorevolvere" in h, "footer con Ko-fi")
+chk("ko-fi.com/s/c7fd921388" in h, "footer del hub enlaza tienda")
 chk("buttondown.com/revolvere" in h, "footer con newsletter")
 chk("archivo/" in h, "index enlaza archivo")
 chk("libros/" in h, "index enlaza libros")
