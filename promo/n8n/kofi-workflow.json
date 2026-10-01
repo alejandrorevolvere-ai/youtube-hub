@@ -1,0 +1,145 @@
+{
+  "id": "senalabierta-kofi-pagos",
+  "name": "Señal Abierta - Ko-fi pagos (poll)",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "hours",
+              "hoursInterval": 3
+            }
+          ]
+        }
+      },
+      "id": "a1000001-0000-4000-8000-000000000001",
+      "name": "Cada 3 horas",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [0, 0]
+    },
+    {
+      "parameters": {
+        "url": "https://senalabierta.pages.dev/api/kofi",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "limit",
+              "value": "100"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "a1000001-0000-4000-8000-000000000002",
+      "name": "Leer pagos /api/kofi",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [220, 0]
+    },
+    {
+      "parameters": {
+        "jsCode": "const st = $getWorkflowStaticData('global');\nst.ids = st.ids || [];\nconst body = $input.first().json;\nconst payments = Array.isArray(body.payments) ? body.payments : [];\n\n// Primera ejecución: siembra sin notificar nada (evita agradecer los pagos históricos)\nif (st.seeded !== true) {\n  st.seeded = true;\n  st.ids = payments.map(p => p.id);\n  return [];\n}\n\nconst fresh = payments.filter(p => !st.ids.includes(p.id));\nst.ids = [...st.ids, ...fresh.map(p => p.id)].slice(-500);\n\nreturn fresh.map(p => ({\n  json: {\n    id: p.id,\n    type: p.type,\n    amount: p.amount,\n    currency: p.currency || 'USD',\n    from: p.from || 'anónimo',\n    note: p.note || '',\n    ts: p.ts,\n    summary: `${p.type || 'payment'} de ${p.amount} ${p.currency || 'USD'} de ${p.from || 'anónimo'}`\n  }\n}));"
+      },
+      "id": "a1000001-0000-4000-8000-000000000003",
+      "name": "Filtrar pagos nuevos",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [440, 0]
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "mode": "id",
+          "value": "PEGA_AQUI_ID_DE_TU_GOOGLE_SHEET"
+        },
+        "sheetName": {
+          "__rl": true,
+          "mode": "name",
+          "value": "Hoja 1"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "fecha": "={{ $json.ts }}",
+            "tipo": "={{ $json.type }}",
+            "importe": "={{ $json.amount }}",
+            "moneda": "={{ $json.currency }}",
+            "de": "={{ $json.from }}",
+            "mensaje": "={{ $json.note }}"
+          },
+          "matchingColumns": [],
+          "schema": []
+        },
+        "options": {}
+      },
+      "id": "a1000001-0000-4000-8000-000000000004",
+      "name": "Fila en Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [660, 0],
+      "disabled": true,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "PEGA_AQUI_CREDENCIAL",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "## Flujo Ko-fi → n8n\n\n1. Ko-fi NO se apunta aquí: su único webhook va a senalabierta.pages.dev/api/kofi (KV + dashboard), que está siempre en pie.\n2. Este workflow consulta GET /api/kofi cada 3 h y detecta pagos nuevos por id (primera ejecución = siembra, sin notificar).\n3. Para actuar: habilita el nodo de Google Sheets (y/o añade Gmail/Discord tras el nodo de filtro) con tus credenciales.\n\nGuía completa: promo/n8n.md",
+        "height": 260,
+        "width": 360
+      },
+      "id": "a1000001-0000-4000-8000-000000000005",
+      "name": "Nota",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [220, -260]
+    }
+  ],
+  "connections": {
+    "Cada 3 horas": {
+      "main": [
+        [
+          {
+            "node": "Leer pagos /api/kofi",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Leer pagos /api/kofi": {
+      "main": [
+        [
+          {
+            "node": "Filtrar pagos nuevos",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filtrar pagos nuevos": {
+      "main": [
+        [
+          {
+            "node": "Fila en Google Sheets",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "pinData": {}
+}

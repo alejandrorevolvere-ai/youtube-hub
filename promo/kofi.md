@@ -1,8 +1,12 @@
 # Ko-fi — pack para empezar a ganar
 
 Estado (2026-10-01): PayPal conectado ✅ · webhook `/api/kofi` verificado ✅ ·
-bio base ✅. FALTAN: avatar, 3 enlaces, categorías, tiers de membresía y
-promoción del enlace. Este fichero tiene todo listo para pegar.
+bio base ✅ · **producto 1 del shop generado** (30 prompts, PDF). FALTAN:
+avatar, 3 enlaces, categorías, tiers de membresía, subir el producto al shop
+y promoción del enlace. Este fichero tiene todo listo para pegar.
+
+> **Ko-fi no tiene API pública**: nada de esto se puede automatizar desde
+> aquí — son 10-15 min manuales en ko-fi.com con este fichero al lado.
 
 ## 1. Tu página (ko-fi.com → "Your page") — 5 min
 
@@ -34,12 +38,34 @@ Ingreso recurrente. Ko-fi cobra 5% (tips: 0%). Precios pensados para ES:
 Reglas: si activas tiers, publica **1 post/mes mínimo** en el feed de Ko-fi
 (exclusivo para socios) — es lo que retiene la membresía.
 
-## 3. Shop (futuro — segundo paso)
+## 3. Shop — producto 1 listo para subir
 
-Productos digitales que puedo generarte (pides uno y lo monto):
-1. **Pack de 30 prompts de IA** del canal IA en 60 segundos (PDF, 5 €).
-2. **Plantilla 50/30/20 + hoja de cálculo** de ahorro (3 €).
-3. **Ebook**: "Las 20 historias de negocios mejor contadas" (del archivo, 7 €).
+**Generado (2026-10-01):** `promo/productos/30-prompts/30-prompts-senal-abierta.pdf`
+(14 páginas · 30 prompts reales de los tips del canal + 3 recetas bonus).
+Fuente editable: `contenido_a.py` / `contenido_b.py` → regenerar con
+`python build_pdf.py`.
+
+Pasos en Ko-fi (ko-fi.com → Shop → Add shop item → Digital product):
+
+1. **Name**: `30 prompts de IA para trabajar el doble en la mitad de tiempo`
+2. **Price**: `5` (€, si Ko-fi te deja elegir divisa; si no, `5 USD` — ~4,6 €)
+3. **Description** (pegar tal cual):
+
+   > Los prompts exactos de los tips de Señal Abierta, listos para copiar y
+   > pegar. 30 prompts en 9 bloques: productividad, tareas programadas,
+   > investigación, carrera, copy, tu voz para newsletters, imágenes y
+   > miniaturas, presentaciones y código. Cada uno con variables listas,
+   > cuándo usarlo y un truco de aprovechamiento. Bonus: 3 recetas de vídeo
+   > (Gemini, Suno, Veo 3). Enlaces directos a cada vídeo original del canal.
+   > Uso personal: cópialos, mézclalos, adáptalos.
+
+4. **Tags**: `prompts`, `ia`, `chatgpt`, `productividad`
+5. **Upload file**: el PDF de arriba.
+6. **Thumbnail**: captura de la portada (el PDF ya lleva portada oscura con
+   ámbar) o pídemela generada.
+
+Siguientes productos (cuando pidas): plantilla 50/30/20 (3 €), ebook de
+historias de negocios (7 €).
 
 ## 4. Dónde promocionar (lo que de verdad trae los primeros euros)
 
