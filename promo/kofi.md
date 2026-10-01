@@ -62,7 +62,8 @@ Pasos en Ko-fi (ko-fi.com → Shop → Add shop item → Digital product):
 4. **Tags**: `prompts`, `ia`, `chatgpt`, `productividad`
 5. **Upload file**: el PDF de arriba.
 6. **Thumbnail**: usa `promo/productos/30-prompts/portada-kofi.png`
-   (1200×900, generada con `python build_portada.py`).
+   (1200×900; fondo generado con IA — Flux vía NIM / Z-Image local — y
+   texto compuesto con `python build_portada.py`).
 
 Siguientes productos (cuando pidas): plantilla 50/30/20 (3 €), ebook de
 historias de negocios (7 €).

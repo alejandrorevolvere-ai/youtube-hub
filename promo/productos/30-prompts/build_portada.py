@@ -9,6 +9,7 @@ sys.stdout.reconfigure(encoding="utf-8")
 
 HERE = Path(__file__).resolve().parent
 OUT = HERE / "portada-kofi.png"
+FONDO_IA = HERE / "fondo-ia.png"
 
 W, H = 1200, 900
 INK = (15, 23, 42)
@@ -37,8 +38,26 @@ f_mono_sm = font("consola.ttf", 19)
 f_foot = font("segoeui.ttf", 24)
 
 
+def base_layer():
+    """Fondo: imagen IA (fondo-ia.png) con scrim, o color plano."""
+    if FONDO_IA.exists():
+        fondo = Image.open(FONDO_IA).convert("RGB").resize((W, H), Image.LANCZOS)
+        scrim = Image.new("RGB", (W, H), INK)
+        mask = Image.new("L", (W, H), 0)
+        md = ImageDraw.Draw(mask)
+        for x in range(W):
+            t = x / W
+            if t < 0.55:
+                a = int(150 * (1 - t / 0.55) + 55)
+            else:
+                a = int(55 * (1 - (t - 0.55) / 0.45))
+            md.line([(x, 0), (x, H)], fill=a)
+        return Image.composite(scrim, fondo, mask)
+    return Image.new("RGB", (W, H), INK)
+
+
 def main():
-    img = Image.new("RGB", (W, H), INK)
+    img = base_layer()
     d = ImageDraw.Draw(img)
 
     d.rectangle([0, 0, W, 14], fill=AMBER)
