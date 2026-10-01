@@ -69,6 +69,11 @@ disc = sum(1 for _, t in files if "Afiliado de Amazon" in t)
 chk(disc == n_amz,
     f"divulgacion de Amazon en {disc} landings == {n_amz} con enlace Amazon")
 
+# beacon del contador propio (/api/stats) en todas las paginas con JS
+n_beacon = sum(1 for _, t in files if "count.js" in t)
+chk(n_beacon == len(files),
+    f"count.js en {n_beacon}/{len(files)} landings")
+
 lp2 = sorted((root / "v").glob("*/index.html"))[10]
 l2 = lp2.read_text(encoding="utf-8")
 chk("lp-aff" in l2, f"bloque afiliados en {lp2.parent.name} (otro canal)")
@@ -98,8 +103,14 @@ chk("Afiliado de Amazon" in lib, "divulgacion de Amazon en libros")
 for p in ["feed.xml", "archivo.js", "404.html", "v-index.json",
           "libros/index.html", "img/hitos/turing.webp",
           "img/hitos/CREDITS.md", "legal/index.html", "deploy.ps1",
-          "scripts/indexnow_ping.py"]:
+          "scripts/indexnow_ping.py", "count.js",
+          "functions/api/stats.js", "wrangler.jsonc"]:
     chk((root / p).exists(), f"existe {p}")
+
+# beacon del contador en el hub, archivo y libros
+chk('src="count.js"' in h, "index usa count.js")
+chk("count.js" in arch, "archivo usa count.js")
+chk("count.js" in lib, "libros usa count.js")
 
 # pagina legal (LSSI) y clave IndexNow
 lg = (root / "legal" / "index.html").read_text(encoding="utf-8")
@@ -107,6 +118,7 @@ chk("Content-Security-Policy" in lg, "legal con meta CSP")
 chk("LSSI" in lg, "legal cita la LSSI-CE")
 chk("Afiliado de Amazon" in lg, "divulgacion de Amazon en /legal/")
 chk("[PENDIENTE" in lg, "legal con placeholders del titular marcados")
+chk("count.js" in lg, "legal usa count.js")
 chk("legal/" in arch, "archivo enlaza /legal/")
 kfs = [p.name for p in root.glob("*.txt")
        if p.name not in ("robots.txt", "llms.txt")]

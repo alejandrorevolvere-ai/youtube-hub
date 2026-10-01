@@ -31,6 +31,7 @@ FILES = [
     "robots.txt",
     "llms.txt",
     "_headers",
+    "count.js",
 ]
 # Clave IndexNow: un fichero <key>.txt en la raiz (publico por diseno,
 # lo busca y notifica scripts/indexnow_ping.py tras cada deploy).

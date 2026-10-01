@@ -1,0 +1,12 @@
+{
+  "name": "senalabierta",
+  "pages_build_output_dir": "dist",
+  "compatibility_date": "2026-09-30",
+  "compatibility_flags": ["nodejs_compat"],
+  "kv_namespaces": [
+    {
+      "binding": "VISITS",
+      "id": "569eb6b6d9594428859082af2119667f"
+    }
+  ]
+}

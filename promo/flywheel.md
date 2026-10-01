@@ -39,8 +39,9 @@ El loop: **vídeo nuevo → descripción con CTA → hub → newsletter → libr
 
 ## Medición (cada lunes)
 
+- [ ] Visitas del hub: `GET https://senalabierta.pages.dev/api/stats`
+      (contador propio: total, últimos 30 días y rutas top)
 - [ ] YouTube Analytics → Alcance → Fuentes externas: `senalabierta.pages.dev`
-- [ ] Cloudflare Web Analytics → tráfico por UTM de entrada
 - [ ] Buttondown → suscriptores y open rate
 - [ ] Amazon Central de Afiliados → clics, carritos, pedidos
 - [ ] Pendientes de alta: Quipu, ElevenLabs, NordVPN (`TODO-AFILIADO`)
@@ -48,6 +49,8 @@ El loop: **vídeo nuevo → descripción con CTA → hub → newsletter → libr
 ## Infra (una vez)
 
 - [ ] `.env` con `BUTTONDOWN_API_KEY` (plantilla en `.env.example`)
-- [ ] PayPal: información de cobro (Ko-fi la procesa)
-- [ ] Google Search Console: propiedad + sitemap (97 URLs)
+- [ ] Cobro: PayPal (o Stripe) conectado en Ko-fi → Payment Settings;
+      Amazon/NordVPN/ElevenLabs pagan por su propio canal (IBAN o PayPal
+      configurado en cada plataforma, no se conecta al hub)
+- [ ] Google Search Console: propiedad + sitemap (102 URLs)
 - [ ] QA visual del hub, `/libros/` y landings (capturas en pantalla)

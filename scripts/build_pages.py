@@ -372,6 +372,7 @@ def video_page(v: dict, ch_key: str, ch_meta: dict, related: list, csp: str) -> 
   </main>
    <footer class="footer shell"><span>© 2026 SEÑAL ABIERTA</span><span><a href="../../archivo/">Archivo completo</a> <b>✳</b> <a href="https://buttondown.com/revolvere?utm_source=senalabierta&amp;utm_medium=newsletter&amp;utm_campaign=landing" target="_blank" rel="noopener noreferrer" data-aff="newsletter">Newsletter ↗</a> <b>✳</b> <a href="{BASE}/feed.xml">Feed</a> <b>✳</b> <a href="../../legal/">Legal</a></span><span><a href="../../">Volver al hub ↑</a></span></footer>
   <script src="../../landing.js"></script>
+  <script src="../../count.js"></script>
 </body>
 </html>
 """
@@ -520,6 +521,7 @@ def archive_page(videos: list, channels: dict, csp: str) -> str:
   </main>
   <footer class="footer shell"><span>© 2026 SEÑAL ABIERTA</span><span><a href="../feed.xml">Feed Atom</a> <b>✳</b> <a href="../legal/">Legal</a> <b>✳</b> <a href="../">Hub ↑</a></span><span><a href="../#inicio">Volver arriba ↑</a></span></footer>
   <script src="../archivo.js"></script>
+  <script src="../count.js"></script>
 </body>
 </html>
 """
@@ -585,6 +587,7 @@ def libros_page(books: list, videos: list, csp: str) -> str:
     </section>
   </main>
   <footer class="footer shell"><span>© 2026 SEÑAL ABIERTA</span><span><a href="../archivo/">Archivo</a> <b>✳</b> <a href="../feed.xml">Feed</a> <b>✳</b> <a href="../legal/">Legal</a></span><span><a href="../">Hub ↑</a></span></footer>
+  <script src="../count.js"></script>
 </body>
 </html>
 """
