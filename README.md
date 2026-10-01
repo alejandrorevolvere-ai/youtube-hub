@@ -36,6 +36,7 @@ Sitio estático del hub editorial **Señal Abierta** — presentación de los ca
 | `scripts/package_site.py` | Empaqueta `dist/` con solo lo público (previo al deploy) |
 | `promo/promo.md` | Textos de promoción listos para pegar |
 | `promo/flywheel.md` | Checklist semanal del loop YouTube → hub → newsletter → Amazon |
+| `AGENTS.md` | Instrucciones de monetización para agentes (Hermes y otros) |
 
 ### Monetización
 
