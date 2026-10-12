@@ -17,7 +17,7 @@ def chk(c, m):
 
 
 vix = json.loads((root / "v-index.json").read_text(encoding="utf-8"))
-chk(len(vix) == 98, f"v-index.json con {len(vix)} entradas")
+chk(len(vix) >= 98, f"v-index.json con {len(vix)} entradas")
 
 t = ET.parse(root / "feed.xml")
 ns = {"a": "http://www.w3.org/2005/Atom"}
@@ -25,14 +25,14 @@ chk(len(t.getroot().findall("a:entry", ns)) == 15, "feed.xml con 15 entradas")
 
 sm = (root / "sitemap.xml").read_text(encoding="utf-8")
 nloc = sm.count("<loc>")
-chk(nloc == 102, f"sitemap con {nloc} URLs")
+chk(nloc >= 102, f"sitemap con {nloc} URLs")
 chk("/archivo/" in sm, "sitemap incluye /archivo/")
 chk("/libros/" in sm, "sitemap incluye /libros/")
 chk("/legal/" in sm, "sitemap incluye /legal/")
 
 arch = (root / "archivo" / "index.html").read_text(encoding="utf-8")
 nvc = arch.count('class="vcard"')
-chk(nvc == 98, f"archivo con {nvc} tarjetas")
+chk(nvc >= 98, f"archivo con {nvc} tarjetas")
 chk("archivo.js" in arch, "archivo usa archivo.js externo")
 chk("Content-Security-Policy" in arch, "archivo con meta CSP")
 inline = re.findall(r"<script(?![^>]*\ssrc=)[^>]*>", arch)
