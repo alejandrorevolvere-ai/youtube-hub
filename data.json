@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-03T19:48:50+00:00",
+  "generated_at": "2026-10-12T16:30:54+00:00",
   "channels": {
     "club": {
       "id": "UCKBRqrOcPPfwc_jxWesEItA",
@@ -16,6 +16,14 @@
       "views": 8247,
       "stats_source": "cached",
       "latest": [
+        {
+          "id": "s4x0pVxbnnw",
+          "title": "Ese pago mínimo de tu tarjeta NO es normal. Es una trampa",
+          "published": "2026-10-04",
+          "url": "https://www.youtube.com/watch?v=s4x0pVxbnnw",
+          "thumb": "https://i.ytimg.com/vi/s4x0pVxbnnw/hqdefault.jpg",
+          "slug": "ese-pago-minimo-de-tu-tarjeta-no-es-normal-es-una-trampa"
+        },
         {
           "id": "dTpxywAtKK0",
           "title": "Tu dinero en la cuenta corriente se está muriendo (y no lo ves)",
@@ -55,14 +63,6 @@
           "url": "https://www.youtube.com/watch?v=QUenfzcLkGU",
           "thumb": "https://i.ytimg.com/vi/QUenfzcLkGU/hqdefault.jpg",
           "slug": "netflix-el-error-que-lo-hizo-millonario"
-        },
-        {
-          "id": "y12CPJujge8",
-          "title": "Google: el dato de dinero que nadie te contó 🤯",
-          "published": "2026-09-26",
-          "url": "https://www.youtube.com/watch?v=y12CPJujge8",
-          "thumb": "https://i.ytimg.com/vi/y12CPJujge8/hqdefault.jpg",
-          "slug": "google-el-dato-de-dinero-que-nadie-te-conto"
         }
       ]
     },
@@ -81,6 +81,22 @@
       "views": 1984,
       "stats_source": "cached",
       "latest": [
+        {
+          "id": "03a4-utyrIQ",
+          "title": "Le pedí a la IA un objeto imposible y pasó esto 🧠",
+          "published": "2026-10-09",
+          "url": "https://www.youtube.com/watch?v=03a4-utyrIQ",
+          "thumb": "https://i.ytimg.com/vi/03a4-utyrIQ/hqdefault.jpg",
+          "slug": "le-pedi-a-la-ia-un-objeto-imposible-y-paso-esto"
+        },
+        {
+          "id": "dna4auJ6Lbg",
+          "title": "Tu voz en WhatsApp NO es privada: te la pueden clonar",
+          "published": "2026-10-04",
+          "url": "https://www.youtube.com/watch?v=dna4auJ6Lbg",
+          "thumb": "https://i.ytimg.com/vi/dna4auJ6Lbg/hqdefault.jpg",
+          "slug": "tu-voz-en-whatsapp-no-es-privada-te-la-pueden-clonar"
+        },
         {
           "id": "W7EIhmXILTw",
           "title": "Por qué las IAs dicen mentiras con total seguridad",
@@ -112,22 +128,6 @@
           "url": "https://www.youtube.com/watch?v=YyNfUQdhsZw",
           "thumb": "https://i.ytimg.com/vi/YyNfUQdhsZw/hqdefault.jpg",
           "slug": "hablo-con-chatgpt-gratis-por-voz"
-        },
-        {
-          "id": "2Ah3VdZFkpM",
-          "title": "Resume 1 HORA de video en 30 seg con IA ⚡",
-          "published": "2026-09-26",
-          "url": "https://www.youtube.com/watch?v=2Ah3VdZFkpM",
-          "thumb": "https://i.ytimg.com/vi/2Ah3VdZFkpM/hqdefault.jpg",
-          "slug": "resume-1-hora-de-video-en-30-seg-con-ia"
-        },
-        {
-          "id": "CNPQXFgIN8c",
-          "title": "Haz que tu voz cante con IA (gratuito) 🎵",
-          "published": "2026-09-26",
-          "url": "https://www.youtube.com/watch?v=CNPQXFgIN8c",
-          "thumb": "https://i.ytimg.com/vi/CNPQXFgIN8c/hqdefault.jpg",
-          "slug": "haz-que-tu-voz-cante-con-ia-gratuito"
         }
       ]
     }

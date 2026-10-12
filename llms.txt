@@ -25,6 +25,11 @@ el mismo creador. Cada vídeo tiene ficha propia (resumen + enlace).
 
 ## Vídeos recientes
 
+- [Le pedí a la IA un objeto imposible y pasó esto 🧠](https://senalabierta.pages.dev/v/le-pedi-a-la-ia-un-objeto-imposible-y-paso-esto/) — IA en 60", 2026-10-09
+- [Ese pago mínimo de tu tarjeta NO es normal. Es una trampa](https://senalabierta.pages.dev/v/ese-pago-minimo-de-tu-tarjeta-no-es-normal-es-una-trampa/) — El Club del Negocio, 2026-10-04
+- [Tu voz en WhatsApp NO es privada: te la pueden clonar](https://senalabierta.pages.dev/v/tu-voz-en-whatsapp-no-es-privada-te-la-pueden-clonar/) — IA en 60", 2026-10-04
+- [Tu dinero en la cuenta corriente se está muriendo (y no lo ves)](https://senalabierta.pages.dev/v/tu-dinero-en-la-cuenta-corriente-se-esta-muriendo-y-no-lo-ves/) — El Club del Negocio, 2026-10-03
+- [Por qué las IAs dicen mentiras con total seguridad](https://senalabierta.pages.dev/v/por-que-las-ias-dicen-mentiras-con-total-seguridad/) — IA en 60", 2026-10-03
 - [La regla 50/30/20 para ahorrar](https://senalabierta.pages.dev/v/la-regla-50-30-20-para-ahorrar/) — El Club del Negocio, 2026-10-01
 - [La ONU advierte sobre la IA](https://senalabierta.pages.dev/v/la-onu-advierte-sobre-la-ia/) — IA en 60", 2026-10-01
 - [El invento que destruyó a Kodak](https://senalabierta.pages.dev/v/el-invento-que-destruyo-a-kodak/) — El Club del Negocio, 2026-09-30
@@ -35,8 +40,3 @@ el mismo creador. Cada vídeo tiene ficha propia (resumen + enlace).
 - [Nike: de vender en el maletero a valer €50B 🚀](https://senalabierta.pages.dev/v/nike-de-vender-en-el-maletero-a-valer-50b/) — El Club del Negocio, 2026-09-26
 - [Netflix: el error de €50M que casi lo destruye 🎬](https://senalabierta.pages.dev/v/netflix-el-error-de-50m-que-casi-lo-destruye/) — El Club del Negocio, 2026-09-26
 - [Apple: el truco para ahorrar €500 al mes 💰](https://senalabierta.pages.dev/v/apple-el-truco-para-ahorrar-500-al-mes/) — El Club del Negocio, 2026-09-26
-- [Airbnb: empezó con un colchón y hoy vale €30B 💥](https://senalabierta.pages.dev/v/airbnb-empezo-con-un-colchon-y-hoy-vale-30b/) — El Club del Negocio, 2026-09-26
-- [Hablo con ChatGPT gratis por voz 🗣️](https://senalabierta.pages.dev/v/hablo-con-chatgpt-gratis-por-voz/) — IA en 60", 2026-09-26
-- [Resume 1 HORA de video en 30 seg con IA ⚡](https://senalabierta.pages.dev/v/resume-1-hora-de-video-en-30-seg-con-ia/) — IA en 60", 2026-09-26
-- [Haz que tu voz cante con IA (gratuito) 🎵](https://senalabierta.pages.dev/v/haz-que-tu-voz-cante-con-ia-gratuito/) — IA en 60", 2026-09-26
-- [Spotify: El Error que lo Hizo Millonario](https://senalabierta.pages.dev/v/spotify-el-error-que-lo-hizo-millonario/) — El Club del Negocio, 2026-09-25
