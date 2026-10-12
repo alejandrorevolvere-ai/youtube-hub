@@ -93,3 +93,22 @@ requisitos."
 
 - Tras una subida: descripción con bloque CTA verificada vía API,
   smoke `ALL OK`, deploy con 200 en vivo, y un dry-run de newsletter en `promo/`.
+
+
+## Integración autónoma (Hermes) — añadida 2026-10-11
+
+**Sin permiso del usuario (todo local/lectura + push al propio repo):**
+- `python scripts/fetch_channel_data.py` → refresca data.json (RSS público + stats cached) y archivo
+- `python scripts/build_pages.py` → regenera landings/feed/sitemap/v-index/llms.txt
+- `powershell -ExecutionPolicy Bypass -File deploy.ps1` → deploy completo a Cloudflare Pages (build+csp+smoke+package+wrangler+IndexNow)
+- `git add/commit/push origin main` → commit del repo (git credencial ya en Credential Manager)
+- Auditoría de secrets (el repo debe permanecer limpio: si un scan encuentra algo, revertir y avisar)
+
+**Requiere autorización del usuario (cuentas externas / irreversibles):**
+- Cualquier cambio en descripciones de vídeos YouTube (`sync_video_descriptions.py --apply`)
+- Crear borradores en Buttondown (`newsletter_draft.py --apply`)
+- Cambiar visibility del repo GitHub, borrar commits, tocar KV de Cloudflare
+- Publicar en redes sociales
+
+**Regla de seguridad permanente:** nada de tokens en el repo. El .gitignore ya cubre
+pickle/env/secrets; verificar con `git ls-files` antes de push si hay dudas.
