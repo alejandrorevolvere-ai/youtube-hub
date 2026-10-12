@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-01T09:40:38+00:00",
+  "generated_at": "2026-10-03T19:48:50+00:00",
   "channels": {
     "club": {
       "id": "UCKBRqrOcPPfwc_jxWesEItA",
@@ -16,6 +16,14 @@
       "views": 8247,
       "stats_source": "cached",
       "latest": [
+        {
+          "id": "dTpxywAtKK0",
+          "title": "Tu dinero en la cuenta corriente se está muriendo (y no lo ves)",
+          "published": "2026-10-03",
+          "url": "https://www.youtube.com/watch?v=dTpxywAtKK0",
+          "thumb": "https://i.ytimg.com/vi/dTpxywAtKK0/hqdefault.jpg",
+          "slug": "tu-dinero-en-la-cuenta-corriente-se-esta-muriendo-y-no-lo-ves"
+        },
         {
           "id": "NlJG_aVERzE",
           "title": "La regla 50/30/20 para ahorrar",
@@ -55,14 +63,6 @@
           "url": "https://www.youtube.com/watch?v=y12CPJujge8",
           "thumb": "https://i.ytimg.com/vi/y12CPJujge8/hqdefault.jpg",
           "slug": "google-el-dato-de-dinero-que-nadie-te-conto"
-        },
-        {
-          "id": "D0XSCj2v0eI",
-          "title": "Nike: de vender en el maletero a valer €50B 🚀",
-          "published": "2026-09-26",
-          "url": "https://www.youtube.com/watch?v=D0XSCj2v0eI",
-          "thumb": "https://i.ytimg.com/vi/D0XSCj2v0eI/hqdefault.jpg",
-          "slug": "nike-de-vender-en-el-maletero-a-valer-50b"
         }
       ]
     },
@@ -81,6 +81,14 @@
       "views": 1984,
       "stats_source": "cached",
       "latest": [
+        {
+          "id": "W7EIhmXILTw",
+          "title": "Por qué las IAs dicen mentiras con total seguridad",
+          "published": "2026-10-03",
+          "url": "https://www.youtube.com/watch?v=W7EIhmXILTw",
+          "thumb": "https://i.ytimg.com/vi/W7EIhmXILTw/hqdefault.jpg",
+          "slug": "por-que-las-ias-dicen-mentiras-con-total-seguridad"
+        },
         {
           "id": "JHTWd2Ji0pQ",
           "title": "La ONU advierte sobre la IA",
@@ -120,14 +128,6 @@
           "url": "https://www.youtube.com/watch?v=CNPQXFgIN8c",
           "thumb": "https://i.ytimg.com/vi/CNPQXFgIN8c/hqdefault.jpg",
           "slug": "haz-que-tu-voz-cante-con-ia-gratuito"
-        },
-        {
-          "id": "-WPT4RJfrnk",
-          "title": "Crea videos épicos con una foto 🎬",
-          "published": "2026-09-25",
-          "url": "https://www.youtube.com/watch?v=-WPT4RJfrnk",
-          "thumb": "https://i.ytimg.com/vi/-WPT4RJfrnk/hqdefault.jpg",
-          "slug": "crea-videos-epicos-con-una-foto"
         }
       ]
     }

@@ -29,3 +29,5 @@ Thumbs.db
 
 # Despliegue
 dist/
+# planes internos de agentes
+.hermes/
